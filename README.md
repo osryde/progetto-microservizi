@@ -1,4 +1,4 @@
 
 ### Progetto microservizi
 
-Progetto per il corso di lauread in Informatica dell'università di Parma
+Progetto per il corso di Microservizi dell'università di Parma
