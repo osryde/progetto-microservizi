@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Api", "PokemonCaptureService.Api\PokemonCaptureService.Api.csproj", "{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Repository", "PokemonCaptureService.Repository\PokemonCaptureService.Repository.csproj", "{77D300EA-A73C-41CA-8356-691A97E6666C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Business", "PokemonCaptureService.Business\PokemonCaptureService.Business.csproj", "{CC31DAE6-37F0-4B15-868D-3D8D2C295487}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77D300EA-A73C-41CA-8356-691A97E6666C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D300EA-A73C-41CA-8356-691A97E6666C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D300EA-A73C-41CA-8356-691A97E6666C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D300EA-A73C-41CA-8356-691A97E6666C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC31DAE6-37F0-4B15-868D-3D8D2C295487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC31DAE6-37F0-4B15-868D-3D8D2C295487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC31DAE6-37F0-4B15-868D-3D8D2C295487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC31DAE6-37F0-4B15-868D-3D8D2C295487}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
