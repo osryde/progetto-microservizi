@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Api", "PokemonCaptureService.Api\PokemonCaptureService.Api.csproj", "{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Api", "PokemonCaptureService.Api\PokemonCaptureService.Api.csproj", "{4D63F897-C777-4364-8AB3-E2BF52798689}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Repository", "PokemonCaptureService.Repository\PokemonCaptureService.Repository.csproj", "{77D300EA-A73C-41CA-8356-691A97E6666C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Business", "PokemonCaptureService.Business\PokemonCaptureService.Business.csproj", "{F27A2402-7635-43FD-9FD7-A53A232D3C06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Business", "PokemonCaptureService.Business\PokemonCaptureService.Business.csproj", "{CC31DAE6-37F0-4B15-868D-3D8D2C295487}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Repository", "PokemonCaptureService.Repository\PokemonCaptureService.Repository.csproj", "{68865F17-C1FD-4817-ACAC-A87B18D79FC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,17 +18,17 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EDA9523-2F29-4A2E-8464-7E82C3B5CA53}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77D300EA-A73C-41CA-8356-691A97E6666C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77D300EA-A73C-41CA-8356-691A97E6666C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77D300EA-A73C-41CA-8356-691A97E6666C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77D300EA-A73C-41CA-8356-691A97E6666C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC31DAE6-37F0-4B15-868D-3D8D2C295487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC31DAE6-37F0-4B15-868D-3D8D2C295487}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC31DAE6-37F0-4B15-868D-3D8D2C295487}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC31DAE6-37F0-4B15-868D-3D8D2C295487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D63F897-C777-4364-8AB3-E2BF52798689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D63F897-C777-4364-8AB3-E2BF52798689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D63F897-C777-4364-8AB3-E2BF52798689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D63F897-C777-4364-8AB3-E2BF52798689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F27A2402-7635-43FD-9FD7-A53A232D3C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27A2402-7635-43FD-9FD7-A53A232D3C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27A2402-7635-43FD-9FD7-A53A232D3C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27A2402-7635-43FD-9FD7-A53A232D3C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68865F17-C1FD-4817-ACAC-A87B18D79FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68865F17-C1FD-4817-ACAC-A87B18D79FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68865F17-C1FD-4817-ACAC-A87B18D79FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68865F17-C1FD-4817-ACAC-A87B18D79FC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
