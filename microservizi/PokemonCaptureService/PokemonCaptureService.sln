@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Busin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Repository", "PokemonCaptureService.Repository\PokemonCaptureService.Repository.csproj", "{68865F17-C1FD-4817-ACAC-A87B18D79FC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCaptureService.Shared", "PokemonCaptureService.Shared\PokemonCaptureService.Shared.csproj", "{0041FDB6-75BF-4E0D-96AB-C6CAFD2792C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{68865F17-C1FD-4817-ACAC-A87B18D79FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68865F17-C1FD-4817-ACAC-A87B18D79FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68865F17-C1FD-4817-ACAC-A87B18D79FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0041FDB6-75BF-4E0D-96AB-C6CAFD2792C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0041FDB6-75BF-4E0D-96AB-C6CAFD2792C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0041FDB6-75BF-4E0D-96AB-C6CAFD2792C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0041FDB6-75BF-4E0D-96AB-C6CAFD2792C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
