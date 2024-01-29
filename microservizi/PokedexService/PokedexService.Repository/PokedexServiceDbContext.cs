@@ -1,6 +1,6 @@
 using PokedexService.Repository.Model;
 using Microsoft.EntityFrameworkCore;
-using PokedexService.Repository.Abstraction;
+
 
 
 
@@ -21,7 +21,7 @@ namespace PokedexService.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Definisco le chiavi per le relazioni
-            modelBuilder.Entity<Pokemon>().HasKey(x => x.PokemonId);
+            modelBuilder.Entity<Pokemon>().HasKey(x => x.Id);
             
         }
 

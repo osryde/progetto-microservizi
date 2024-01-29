@@ -1,20 +1,37 @@
+using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PokedexService.Repository.Model
 {
 
     public class Pokemon
     {
-        public int Id { get; set; }
-        public int PokedexNum { get; set; }
-        public string PokemonName { get; set; }
-        public string Image { get; set; }
-        public string[] PokemonType { get; set; }
-        public string PokemonHeight { get; set; }
-        public string PokemonWeight { get; set; }
-        public string[] PokemonWeaknesses { get; set; }
+        [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        public Evolution[] Evolutions { get; set; }
+        [JsonPropertyName("num")]
+        public int PokedexNum { get; set; }
+
+        [JsonPropertyName("name")]
+        public required string PokemonName { get; set; }
+
+        [JsonPropertyName("img")]
+        public required string Image { get; set; }
+
+        [JsonPropertyName("type")]
+        public required string[] PokemonType { get; set; }
+
+        [JsonPropertyName("height")]
+        public required string PokemonHeight { get; set; }
+
+        [JsonPropertyName("weight")]
+        public required string PokemonWeight { get; set; }
+
+        [JsonPropertyName("weaknesses")]
+        public required string[] PokemonWeaknesses { get; set; }
+
+        [JsonPropertyName("next_evolution")]
+        public Evolution[]? Evolutions { get; set; }
     }
 
     public class Evolution
