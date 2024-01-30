@@ -34,7 +34,7 @@ namespace PokemonCaptureService.Repository.Migrations
 
                     b.HasKey("ItemId");
 
-                    b.ToTable("Items");
+                    b.ToTable("Item");
                 });
 
             modelBuilder.Entity("PokemonCaptureService.Repository.Model.Pokemon", b =>

@@ -11,7 +11,7 @@ using PokemonCaptureService.Repository;
 namespace PokemonCaptureService.Repository.Migrations
 {
     [DbContext(typeof(PokemonCaptureServiceDbContext))]
-    [Migration("20240128105021_InitialCreate")]
+    [Migration("20240130155107_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -37,7 +37,7 @@ namespace PokemonCaptureService.Repository.Migrations
 
                     b.HasKey("ItemId");
 
-                    b.ToTable("Items");
+                    b.ToTable("Item");
                 });
 
             modelBuilder.Entity("PokemonCaptureService.Repository.Model.Pokemon", b =>

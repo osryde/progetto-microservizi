@@ -9,10 +9,6 @@ namespace PokemonCaptureService.Repository
     public class PokemonCaptureServiceDbContext : DbContext
     {
 
-        //DBSet ottenuto dalla cartella Model
-        public DbSet<Pokemon> Pokemons { get; set; }
-        public DbSet<Items> Items { get; set; }
-
         public PokemonCaptureServiceDbContext(DbContextOptions<PokemonCaptureServiceDbContext> options) 
             : base(options) 
         {
@@ -30,5 +26,9 @@ namespace PokemonCaptureService.Repository
             
         }
 
+
+        //DBSet ottenuto dalla cartella Model
+        public DbSet<Pokemon> Pokemons { get; set; }
+        public DbSet<Items> Item { get; set; }
     }
 }

@@ -48,7 +48,7 @@ namespace PokemonCaptureService.Repository
 
         public async Task<Items> GetItemById(int id, CancellationToken cancellationToken = default)
         {
-            Items? result = await _PokemonCaptureServiceDbContext.Items.FirstOrDefaultAsync(x => x.ItemId == id, cancellationToken);
+            Items? result = await _PokemonCaptureServiceDbContext.Item.FirstOrDefaultAsync(x => x.ItemId == id, cancellationToken);
 
             if (result == null)
                 throw new NullReferenceException("Non è stato trovato un Item con tale ID");
@@ -59,14 +59,14 @@ namespace PokemonCaptureService.Repository
 
         public async Task<Items> GetItemByName(string name, CancellationToken cancellationToken = default)
         {
-            Items? result = await _PokemonCaptureServiceDbContext.Items.FirstOrDefaultAsync(x => x.ItemName == name, cancellationToken);
+            Items? result = await _PokemonCaptureServiceDbContext.Item.FirstOrDefaultAsync(x => x.ItemName == name, cancellationToken);
 
             if(result == null)
                 throw new NullReferenceException("Non è stato trovato un Item con tale NOME");
 
             return result;              }
 
-        public async Task<IEnumerable<Items>> GetAllItems(CancellationToken cancellationToken = default) => await _PokemonCaptureServiceDbContext.Items.ToListAsync(cancellationToken);
+        public async Task<IEnumerable<Items>> GetAllItems(CancellationToken cancellationToken = default) => await _PokemonCaptureServiceDbContext.Item.ToListAsync(cancellationToken);
 
 
         #endregion
@@ -85,14 +85,14 @@ namespace PokemonCaptureService.Repository
             if(items == null)
                 throw new NullReferenceException("L'Item passato è null");
 
-            await _PokemonCaptureServiceDbContext.Items.AddAsync(items);
+            await _PokemonCaptureServiceDbContext.Item.AddAsync(items);
 
             return items;
         }
 
         public async Task AddPokemonsAndItemsAsync(CancellationToken cancellationToken = default){
              
-            if(_PokemonCaptureServiceDbContext.Pokemons.Count() != 0 || _PokemonCaptureServiceDbContext.Items.Count() != 0)
+            if(_PokemonCaptureServiceDbContext.Pokemons.Count() != 0 || _PokemonCaptureServiceDbContext.Item.Count() != 0)
                 return;
 
             using FileStream dati = File.OpenRead("pokedexMinimal.json");

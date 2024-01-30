@@ -1,5 +1,10 @@
-﻿namespace PokemonTrainerService.Business;
-public class Class1
+﻿using PokemonTrainerService.Business.Abstraction;
+
+namespace PokemonTrainerService.Business
 {
+    public class Business : IBusiness
+    {
+
+    }
 
 }

@@ -1,9 +1,19 @@
+using PokemonTrainerService.Repository;
+using PokemonTrainerService.Repository.Abstraction;
+using PokemonTrainerService.Business;
+using PokemonTrainerService.Business.Abstraction;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddDbContext<PokemonTrainerServiceDbContext>(options => options.UseSqlServer("name=ConnectionStrings:PokemonTrainerServiceDbContext", b => b.MigrationsAssembly("PokemonTrainerService.Repository")));
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<IBusiness, Business>();
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

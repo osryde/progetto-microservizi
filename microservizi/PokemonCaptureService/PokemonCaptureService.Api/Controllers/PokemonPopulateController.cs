@@ -39,7 +39,7 @@ public class PokemonPopulateController : ControllerBase
 
     }
 
-    [HttpPost("PopulateFromJson")]
+    [HttpPost("PopulateAreaWithPokemon")]
     public async Task<IActionResult> ImportPokemonFromJsonFile()
     {
 

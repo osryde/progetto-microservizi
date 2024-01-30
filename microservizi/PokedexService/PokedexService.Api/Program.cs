@@ -1,9 +1,19 @@
+using PokedexService.Repository.Abstraction;
+using PokedexService.Business.Abstraction;
+using PokedexService.Repository;
+using PokedexService.Business;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddDbContext<PokedexServiceDbContext>(options => options.UseSqlServer("name=ConnectionStrings:PokedexServiceDbContext", b => b.MigrationsAssembly("PokedexService.Repository")));
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<IBusiness, Business>();
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

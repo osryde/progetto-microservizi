@@ -11,7 +11,7 @@ namespace PokemonCaptureService.Repository.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Items",
+                name: "Item",
                 columns: table => new
                 {
                     ItemId = table.Column<int>(type: "int", nullable: false),
@@ -19,7 +19,7 @@ namespace PokemonCaptureService.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Items", x => x.ItemId);
+                    table.PrimaryKey("PK_Item", x => x.ItemId);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,7 +40,7 @@ namespace PokemonCaptureService.Repository.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Items");
+                name: "Item");
 
             migrationBuilder.DropTable(
                 name: "Pokemons");

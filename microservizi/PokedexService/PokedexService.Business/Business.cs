@@ -1,5 +1,11 @@
-﻿namespace PokedexService.Business;
-public class Class1
-{
+﻿using PokedexService.Business.Abstraction;
 
+namespace PokedexService.Business
+{
+    public class Business : IBusiness
+    {
+
+    }
+    
 }
+

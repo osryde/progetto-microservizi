@@ -1,5 +1,11 @@
-﻿namespace PokedexService.Repository;
-public class Class1
-{
+﻿using PokedexService.Repository.Abstraction;
 
+namespace PokedexService.Repository
+{
+    public class Repository : IRepository
+    {
+
+    }
+    
 }
+
