@@ -1,0 +1,758 @@
+  [
+    {
+      "id": 1,
+      "name": "Bulbasaur",
+      "img": "http://www.serebii.net/pokemongo/pokemon/001.png"
+    },
+    {
+      "id": 2,
+      "name": "Ivysaur",
+      "img": "http://www.serebii.net/pokemongo/pokemon/002.png"
+    },
+    {
+      "id": 3,
+      "name": "Venusaur",
+      "img": "http://www.serebii.net/pokemongo/pokemon/003.png"
+    },
+    {
+      "id": 4,
+      "name": "Charmander",
+      "img": "http://www.serebii.net/pokemongo/pokemon/004.png"
+    },
+    {
+      "id": 5,
+      "name": "Charmeleon",
+      "img": "http://www.serebii.net/pokemongo/pokemon/005.png"
+    },
+    {
+      "id": 6,
+      "name": "Charizard",
+      "img": "http://www.serebii.net/pokemongo/pokemon/006.png"
+    },
+    {
+      "id": 7,
+      "name": "Squirtle",
+      "img": "http://www.serebii.net/pokemongo/pokemon/007.png"
+    },
+    {
+      "id": 8,
+      "name": "Wartortle",
+      "img": "http://www.serebii.net/pokemongo/pokemon/008.png"
+    },
+    {
+      "id": 9,
+      "name": "Blastoise",
+      "img": "http://www.serebii.net/pokemongo/pokemon/009.png"
+    },
+    {
+      "id": 10,
+      "name": "Caterpie",
+      "img": "http://www.serebii.net/pokemongo/pokemon/010.png"
+    },
+    {
+      "id": 11,
+      "name": "Metapod",
+      "img": "http://www.serebii.net/pokemongo/pokemon/011.png"
+    },
+    {
+      "id": 12,
+      "name": "Butterfree",
+      "img": "http://www.serebii.net/pokemongo/pokemon/012.png"
+    },
+    {
+      "id": 13,
+      "name": "Weedle",
+      "img": "http://www.serebii.net/pokemongo/pokemon/013.png"
+    },
+    {
+      "id": 14,
+      "name": "Kakuna",
+      "img": "http://www.serebii.net/pokemongo/pokemon/014.png"
+    },
+    {
+      "id": 15,
+      "name": "Beedrill",
+      "img": "http://www.serebii.net/pokemongo/pokemon/015.png"
+    },
+    {
+      "id": 16,
+      "name": "Pidgey",
+      "img": "http://www.serebii.net/pokemongo/pokemon/016.png"
+    },
+    {
+      "id": 17,
+      "name": "Pidgeotto",
+      "img": "http://www.serebii.net/pokemongo/pokemon/017.png"
+    },
+    {
+      "id": 18,
+      "name": "Pidgeot",
+      "img": "http://www.serebii.net/pokemongo/pokemon/018.png"
+    },
+    {
+      "id": 19,
+      "name": "Rattata",
+      "img": "http://www.serebii.net/pokemongo/pokemon/019.png"
+    },
+    {
+      "id": 20,
+      "name": "Raticate",
+      "img": "http://www.serebii.net/pokemongo/pokemon/020.png"
+    },
+    {
+      "id": 21,
+      "name": "Spearow",
+      "img": "http://www.serebii.net/pokemongo/pokemon/021.png"
+    },
+    {
+      "id": 22,
+      "name": "Fearow",
+      "img": "http://www.serebii.net/pokemongo/pokemon/022.png"
+    },
+    {
+      "id": 23,
+      "name": "Ekans",
+      "img": "http://www.serebii.net/pokemongo/pokemon/023.png"
+    },
+    {
+      "id": 24,
+      "name": "Arbok",
+      "img": "http://www.serebii.net/pokemongo/pokemon/024.png"
+    },
+    {
+      "id": 25,
+      "name": "Pikachu",
+      "img": "http://www.serebii.net/pokemongo/pokemon/025.png"
+    },
+    {
+      "id": 26,
+      "name": "Raichu",
+      "img": "http://www.serebii.net/pokemongo/pokemon/026.png"
+    },
+    {
+      "id": 27,
+      "name": "Sandshrew",
+      "img": "http://www.serebii.net/pokemongo/pokemon/027.png"
+    },
+    {
+      "id": 28,
+      "name": "Sandslash",
+      "img": "http://www.serebii.net/pokemongo/pokemon/028.png"
+    },
+    {
+      "id": 29,
+      "name": "Nidoran ♀ (Female)",
+      "img": "http://www.serebii.net/pokemongo/pokemon/029.png"
+    },
+    {
+      "id": 30,
+      "name": "Nidorina",
+      "img": "http://www.serebii.net/pokemongo/pokemon/030.png"
+    },
+    {
+      "id": 31,
+      "name": "Nidoqueen",
+      "img": "http://www.serebii.net/pokemongo/pokemon/031.png"
+    },
+    {
+      "id": 32,
+      "name": "Nidoran ♂ (Male)",
+      "img": "http://www.serebii.net/pokemongo/pokemon/032.png"
+    },
+    {
+      "id": 33,
+      "name": "Nidorino",
+      "img": "http://www.serebii.net/pokemongo/pokemon/033.png"
+    },
+    {
+      "id": 34,
+      "name": "Nidoking",
+      "img": "http://www.serebii.net/pokemongo/pokemon/034.png"
+    },
+    {
+      "id": 35,
+      "name": "Clefairy",
+      "img": "http://www.serebii.net/pokemongo/pokemon/035.png"
+    },
+    {
+      "id": 36,
+      "name": "Clefable",
+      "img": "http://www.serebii.net/pokemongo/pokemon/036.png"
+    },
+    {
+      "id": 37,
+      "name": "Vulpix",
+      "img": "http://www.serebii.net/pokemongo/pokemon/037.png"
+    },
+    {
+      "id": 38,
+      "name": "Ninetales",
+      "img": "http://www.serebii.net/pokemongo/pokemon/038.png"
+    },
+    {
+      "id": 39,
+      "name": "Jigglypuff",
+      "img": "http://www.serebii.net/pokemongo/pokemon/039.png"
+    },
+    {
+      "id": 40,
+      "name": "Wigglytuff",
+      "img": "http://www.serebii.net/pokemongo/pokemon/040.png"
+    },
+    {
+      "id": 41,
+      "name": "Zubat",
+      "img": "http://www.serebii.net/pokemongo/pokemon/041.png"
+    },
+    {
+      "id": 42,
+      "name": "Golbat",
+      "img": "http://www.serebii.net/pokemongo/pokemon/042.png"
+    },
+    {
+      "id": 43,
+      "name": "Oddish",
+      "img": "http://www.serebii.net/pokemongo/pokemon/043.png"
+    },
+    {
+      "id": 44,
+      "name": "Gloom",
+      "img": "http://www.serebii.net/pokemongo/pokemon/044.png"
+    },
+    {
+      "id": 45,
+      "name": "Vileplume",
+      "img": "http://www.serebii.net/pokemongo/pokemon/045.png"
+    },
+    {
+      "id": 46,
+      "name": "Paras",
+      "img": "http://www.serebii.net/pokemongo/pokemon/046.png"
+    },
+    {
+      "id": 47,
+      "name": "Parasect",
+      "img": "http://www.serebii.net/pokemongo/pokemon/047.png"
+    },
+    {
+      "id": 48,
+      "name": "Venonat",
+      "img": "http://www.serebii.net/pokemongo/pokemon/048.png"
+    },
+    {
+      "id": 49,
+      "name": "Venomoth",
+      "img": "http://www.serebii.net/pokemongo/pokemon/049.png"
+    },
+    {
+      "id": 50,
+      "name": "Diglett",
+      "img": "http://www.serebii.net/pokemongo/pokemon/050.png"
+    },
+    {
+      "id": 51,
+      "name": "Dugtrio",
+      "img": "http://www.serebii.net/pokemongo/pokemon/051.png"
+    },
+    {
+      "id": 52,
+      "name": "Meowth",
+      "img": "http://www.serebii.net/pokemongo/pokemon/052.png"
+    },
+    {
+      "id": 53,
+      "name": "Persian",
+      "img": "http://www.serebii.net/pokemongo/pokemon/053.png"
+    },
+    {
+      "id": 54,
+      "name": "Psyduck",
+      "img": "http://www.serebii.net/pokemongo/pokemon/054.png"
+    },
+    {
+      "id": 55,
+      "name": "Golduck",
+      "img": "http://www.serebii.net/pokemongo/pokemon/055.png"
+    },
+    {
+      "id": 56,
+      "name": "Mankey",
+      "img": "http://www.serebii.net/pokemongo/pokemon/056.png"
+    },
+    {
+      "id": 57,
+      "name": "Primeape",
+      "img": "http://www.serebii.net/pokemongo/pokemon/057.png"
+    },
+    {
+      "id": 58,
+      "name": "Growlithe",
+      "img": "http://www.serebii.net/pokemongo/pokemon/058.png"
+    },
+    {
+      "id": 59,
+      "name": "Arcanine",
+      "img": "http://www.serebii.net/pokemongo/pokemon/059.png"
+    },
+    {
+      "id": 60,
+      "name": "Poliwag",
+      "img": "http://www.serebii.net/pokemongo/pokemon/060.png"
+    },
+    {
+      "id": 61,
+      "name": "Poliwhirl",
+      "img": "http://www.serebii.net/pokemongo/pokemon/061.png"
+    },
+    {
+      "id": 62,
+      "name": "Poliwrath",
+      "img": "http://www.serebii.net/pokemongo/pokemon/062.png"
+    },
+    {
+      "id": 63,
+      "name": "Abra",
+      "img": "http://www.serebii.net/pokemongo/pokemon/063.png"
+    },
+    {
+      "id": 64,
+      "name": "Kadabra",
+      "img": "http://www.serebii.net/pokemongo/pokemon/064.png"
+    },
+    {
+      "id": 65,
+      "name": "Alakazam",
+      "img": "http://www.serebii.net/pokemongo/pokemon/065.png"
+    },
+    {
+      "id": 66,
+      "name": "Machop",
+      "img": "http://www.serebii.net/pokemongo/pokemon/066.png"
+    },
+    {
+      "id": 67,
+      "name": "Machoke",
+      "img": "http://www.serebii.net/pokemongo/pokemon/067.png"
+    },
+    {
+      "id": 68,
+      "name": "Machamp",
+      "img": "http://www.serebii.net/pokemongo/pokemon/068.png"
+    },
+    {
+      "id": 69,
+      "name": "Bellsprout",
+      "img": "http://www.serebii.net/pokemongo/pokemon/069.png"
+    },
+    {
+      "id": 70,
+      "name": "Weepinbell",
+      "img": "http://www.serebii.net/pokemongo/pokemon/070.png"
+    },
+    {
+      "id": 71,
+      "name": "Victreebel",
+      "img": "http://www.serebii.net/pokemongo/pokemon/071.png"
+    },
+    {
+      "id": 72,
+      "name": "Tentacool",
+      "img": "http://www.serebii.net/pokemongo/pokemon/072.png"
+    },
+    {
+      "id": 73,
+      "name": "Tentacruel",
+      "img": "http://www.serebii.net/pokemongo/pokemon/073.png"
+    },
+    {
+      "id": 74,
+      "name": "Geodude",
+      "img": "http://www.serebii.net/pokemongo/pokemon/074.png"
+    },
+    {
+      "id": 75,
+      "name": "Graveler",
+      "img": "http://www.serebii.net/pokemongo/pokemon/075.png"
+    },
+    {
+      "id": 76,
+      "name": "Golem",
+      "img": "http://www.serebii.net/pokemongo/pokemon/076.png"
+    },
+    {
+      "id": 77,
+      "name": "Ponyta",
+      "img": "http://www.serebii.net/pokemongo/pokemon/077.png"
+    },
+    {
+      "id": 78,
+      "name": "Rapidash",
+      "img": "http://www.serebii.net/pokemongo/pokemon/078.png"
+    },
+    {
+      "id": 79,
+      "name": "Slowpoke",
+      "img": "http://www.serebii.net/pokemongo/pokemon/079.png"
+    },
+    {
+      "id": 80,
+      "name": "Slowbro",
+      "img": "http://www.serebii.net/pokemongo/pokemon/080.png"
+    },
+    {
+      "id": 81,
+      "name": "Magnemite",
+      "img": "http://www.serebii.net/pokemongo/pokemon/081.png"
+    },
+    {
+      "id": 82,
+      "name": "Magneton",
+      "img": "http://www.serebii.net/pokemongo/pokemon/082.png"
+    },
+    {
+      "id": 83,
+      "name": "Farfetch'd",
+      "img": "http://www.serebii.net/pokemongo/pokemon/083.png"
+    },
+    {
+      "id": 84,
+      "name": "Doduo",
+      "img": "http://www.serebii.net/pokemongo/pokemon/084.png"
+    },
+    {
+      "id": 85,
+      "name": "Dodrio",
+      "img": "http://www.serebii.net/pokemongo/pokemon/085.png"
+    },
+    {
+      "id": 86,
+      "name": "Seel",
+      "img": "http://www.serebii.net/pokemongo/pokemon/086.png"
+    },
+    {
+      "id": 87,
+      "name": "Dewgong",
+      "img": "http://www.serebii.net/pokemongo/pokemon/087.png"
+    },
+    {
+      "id": 88,
+      "name": "Grimer",
+      "img": "http://www.serebii.net/pokemongo/pokemon/088.png"
+    },
+    {
+      "id": 89,
+      "name": "Muk",
+      "img": "http://www.serebii.net/pokemongo/pokemon/089.png"
+    },
+    {
+      "id": 90,
+      "name": "Shellder",
+      "img": "http://www.serebii.net/pokemongo/pokemon/090.png"
+    },
+    {
+      "id": 91,
+      "name": "Cloyster",
+      "img": "http://www.serebii.net/pokemongo/pokemon/091.png"
+    },
+    {
+      "id": 92,
+      "name": "Gastly",
+      "img": "http://www.serebii.net/pokemongo/pokemon/092.png"
+    },
+    {
+      "id": 93,
+      "name": "Haunter",
+      "img": "http://www.serebii.net/pokemongo/pokemon/093.png"
+    },
+    {
+      "id": 94,
+      "name": "Gengar",
+      "img": "http://www.serebii.net/pokemongo/pokemon/094.png"
+    },
+    {
+      "id": 95,
+      "name": "Onix",
+      "img": "http://www.serebii.net/pokemongo/pokemon/095.png"
+    },
+    {
+      "id": 96,
+      "name": "Drowzee",
+      "img": "http://www.serebii.net/pokemongo/pokemon/096.png"
+    },
+    {
+      "id": 97,
+      "name": "Hypno",
+      "img": "http://www.serebii.net/pokemongo/pokemon/097.png"
+    },
+    {
+      "id": 98,
+      "name": "Krabby",
+      "img": "http://www.serebii.net/pokemongo/pokemon/098.png"
+    },
+    {
+      "id": 99,
+      "name": "Kingler",
+      "img": "http://www.serebii.net/pokemongo/pokemon/099.png"
+    },
+    {
+      "id": 100,
+      "name": "Voltorb",
+      "img": "http://www.serebii.net/pokemongo/pokemon/100.png"
+    },
+    {
+      "id": 101,
+      "name": "Electrode",
+      "img": "http://www.serebii.net/pokemongo/pokemon/101.png"
+    },
+    {
+      "id": 102,
+      "name": "Exeggcute",
+      "img": "http://www.serebii.net/pokemongo/pokemon/102.png"
+    },
+    {
+      "id": 103,
+      "name": "Exeggutor",
+      "img": "http://www.serebii.net/pokemongo/pokemon/103.png"
+    },
+    {
+      "id": 104,
+      "name": "Cubone",
+      "img": "http://www.serebii.net/pokemongo/pokemon/104.png"
+    },
+    {
+      "id": 105,
+      "name": "Marowak",
+      "img": "http://www.serebii.net/pokemongo/pokemon/105.png"
+    },
+    {
+      "id": 106,
+      "name": "Hitmonlee",
+      "img": "http://www.serebii.net/pokemongo/pokemon/106.png"
+    },
+    {
+      "id": 107,
+      "name": "Hitmonchan",
+      "img": "http://www.serebii.net/pokemongo/pokemon/107.png"
+    },
+    {
+      "id": 108,
+      "name": "Lickitung",
+      "img": "http://www.serebii.net/pokemongo/pokemon/108.png"
+    },
+    {
+      "id": 109,
+      "name": "Koffing",
+      "img": "http://www.serebii.net/pokemongo/pokemon/109.png"
+    },
+    {
+      "id": 110,
+      "name": "Weezing",
+      "img": "http://www.serebii.net/pokemongo/pokemon/110.png"
+    },
+    {
+      "id": 111,
+      "name": "Rhyhorn",
+      "img": "http://www.serebii.net/pokemongo/pokemon/111.png"
+    },
+    {
+      "id": 112,
+      "name": "Rhydon",
+      "img": "http://www.serebii.net/pokemongo/pokemon/112.png"
+    },
+    {
+      "id": 113,
+      "name": "Chansey",
+      "img": "http://www.serebii.net/pokemongo/pokemon/113.png"
+    },
+    {
+      "id": 114,
+      "name": "Tangela",
+      "img": "http://www.serebii.net/pokemongo/pokemon/114.png"
+    },
+    {
+      "id": 115,
+      "name": "Kangaskhan",
+      "img": "http://www.serebii.net/pokemongo/pokemon/115.png"
+    },
+    {
+      "id": 116,
+      "name": "Horsea",
+      "img": "http://www.serebii.net/pokemongo/pokemon/116.png"
+    },
+    {
+      "id": 117,
+      "name": "Seadra",
+      "img": "http://www.serebii.net/pokemongo/pokemon/117.png"
+    },
+    {
+      "id": 118,
+      "name": "Goldeen",
+      "img": "http://www.serebii.net/pokemongo/pokemon/118.png"
+    },
+    {
+      "id": 119,
+      "name": "Seaking",
+      "img": "http://www.serebii.net/pokemongo/pokemon/119.png"
+    },
+    {
+      "id": 120,
+      "name": "Staryu",
+      "img": "http://www.serebii.net/pokemongo/pokemon/120.png"
+    },
+    {
+      "id": 121,
+      "name": "Starmie",
+      "img": "http://www.serebii.net/pokemongo/pokemon/121.png"
+    },
+    {
+      "id": 122,
+      "name": "Mr. Mime",
+      "img": "http://www.serebii.net/pokemongo/pokemon/122.png"
+    },
+    {
+      "id": 123,
+      "name": "Scyther",
+      "img": "http://www.serebii.net/pokemongo/pokemon/123.png"
+    },
+    {
+      "id": 124,
+      "name": "Jynx",
+      "img": "http://www.serebii.net/pokemongo/pokemon/124.png"
+    },
+    {
+      "id": 125,
+      "name": "Electabuzz",
+      "img": "http://www.serebii.net/pokemongo/pokemon/125.png"
+    },
+    {
+      "id": 126,
+      "name": "Magmar",
+      "img": "http://www.serebii.net/pokemongo/pokemon/126.png"
+    },
+    {
+      "id": 127,
+      "name": "Pinsir",
+      "img": "http://www.serebii.net/pokemongo/pokemon/127.png"
+    },
+    {
+      "id": 128,
+      "name": "Tauros",
+      "img": "http://www.serebii.net/pokemongo/pokemon/128.png"
+    },
+    {
+      "id": 129,
+      "name": "Magikarp",
+      "img": "http://www.serebii.net/pokemongo/pokemon/129.png"
+    },
+    {
+      "id": 130,
+      "name": "Gyarados",
+      "img": "http://www.serebii.net/pokemongo/pokemon/130.png"
+    },
+    {
+      "id": 131,
+      "name": "Lapras",
+      "img": "http://www.serebii.net/pokemongo/pokemon/131.png"
+    },
+    {
+      "id": 132,
+      "name": "Ditto",
+      "img": "http://www.serebii.net/pokemongo/pokemon/132.png"
+    },
+    {
+      "id": 133,
+      "name": "Eevee",
+      "img": "http://www.serebii.net/pokemongo/pokemon/133.png"
+    },
+    {
+      "id": 134,
+      "name": "Vaporeon",
+      "img": "http://www.serebii.net/pokemongo/pokemon/134.png"
+    },
+    {
+      "id": 135,
+      "name": "Jolteon",
+      "img": "http://www.serebii.net/pokemongo/pokemon/135.png"
+    },
+    {
+      "id": 136,
+      "name": "Flareon",
+      "img": "http://www.serebii.net/pokemongo/pokemon/136.png"
+    },
+    {
+      "id": 137,
+      "name": "Porygon",
+      "img": "http://www.serebii.net/pokemongo/pokemon/137.png"
+    },
+    {
+      "id": 138,
+      "name": "Omanyte",
+      "img": "http://www.serebii.net/pokemongo/pokemon/138.png"
+    },
+    {
+      "id": 139,
+      "name": "Omastar",
+      "img": "http://www.serebii.net/pokemongo/pokemon/139.png"
+    },
+    {
+      "id": 140,
+      "name": "Kabuto",
+      "img": "http://www.serebii.net/pokemongo/pokemon/140.png"
+    },
+    {
+      "id": 141,
+      "name": "Kabutops",
+      "img": "http://www.serebii.net/pokemongo/pokemon/141.png"
+    },
+    {
+      "id": 142,
+      "name": "Aerodactyl",
+      "img": "http://www.serebii.net/pokemongo/pokemon/142.png"
+    },
+    {
+      "id": 143,
+      "name": "Snorlax",
+      "img": "http://www.serebii.net/pokemongo/pokemon/143.png"
+    },
+    {
+      "id": 144,
+      "name": "Articuno",
+      "img": "http://www.serebii.net/pokemongo/pokemon/144.png"
+    },
+    {
+      "id": 145,
+      "name": "Zapdos",
+      "img": "http://www.serebii.net/pokemongo/pokemon/145.png"
+    },
+    {
+      "id": 146,
+      "name": "Moltres",
+      "img": "http://www.serebii.net/pokemongo/pokemon/146.png"
+    },
+    {
+      "id": 147,
+      "name": "Dratini",
+      "img": "http://www.serebii.net/pokemongo/pokemon/147.png"
+    },
+    {
+      "id": 148,
+      "name": "Dragonair",
+      "img": "http://www.serebii.net/pokemongo/pokemon/148.png"
+    },
+    {
+      "id": 149,
+      "name": "Dragonite",
+      "img": "http://www.serebii.net/pokemongo/pokemon/149.png"
+    },
+    {
+      "id": 150,
+      "name": "Mewtwo",
+      "img": "http://www.serebii.net/pokemongo/pokemon/150.png"
+    },
+    {
+      "id": 151,
+      "name": "Mew",
+      "img": "http://www.serebii.net/pokemongo/pokemon/151.png"
+    }
+  ]
+

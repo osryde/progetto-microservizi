@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PokemonCaptureService.Repository;
+using PokedexService.Repository;
 
 #nullable disable
 
-namespace PokemonCaptureService.Repository.Migrations
+namespace PokedexService.Repository.Migrations
 {
-    [DbContext(typeof(PokemonCaptureServiceDbContext))]
-    [Migration("20240130155107_InitialCreate")]
+    [DbContext(typeof(PokedexServiceDbContext))]
+    [Migration("20240131182936_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,29 +24,13 @@ namespace PokemonCaptureService.Repository.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("PokemonCaptureService.Repository.Model.Items", b =>
+            modelBuilder.Entity("PokedexService.Repository.Model.Pokemon", b =>
                 {
-                    b.Property<int>("ItemId")
+                    b.Property<int>("Id")
                         .HasColumnType("int")
                         .HasAnnotation("Relational:JsonPropertyName", "id");
 
-                    b.Property<string>("ItemName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasAnnotation("Relational:JsonPropertyName", "name");
-
-                    b.HasKey("ItemId");
-
-                    b.ToTable("Item");
-                });
-
-            modelBuilder.Entity("PokemonCaptureService.Repository.Model.Pokemon", b =>
-                {
-                    b.Property<int>("PokemonId")
-                        .HasColumnType("int")
-                        .HasAnnotation("Relational:JsonPropertyName", "id");
-
-                    b.Property<string>("PokemonImage")
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "img");
@@ -56,7 +40,7 @@ namespace PokemonCaptureService.Repository.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "name");
 
-                    b.HasKey("PokemonId");
+                    b.HasKey("Id");
 
                     b.ToTable("Pokemons");
                 });

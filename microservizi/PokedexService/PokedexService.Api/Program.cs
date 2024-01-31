@@ -3,6 +3,8 @@ using PokedexService.Business.Abstraction;
 using PokedexService.Repository;
 using PokedexService.Business;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using PokemonCaptureService.ClientHttp;
 
 var builder = WebApplication.CreateBuilder(args);
 

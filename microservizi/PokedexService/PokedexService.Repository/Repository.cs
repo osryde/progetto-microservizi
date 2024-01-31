@@ -36,7 +36,7 @@ namespace PokedexService.Repository
         {
             Pokemon? result = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.PokemonName == name, cancellationToken);
 
-            if(result == null)
+            if(result == default)
                 throw new NullReferenceException();
                 
             // Il risultato può essere null

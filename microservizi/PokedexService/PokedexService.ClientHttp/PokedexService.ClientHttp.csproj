@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\PokedexService.Repository\PokedexService.Repository.csproj" />
-    <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.ClientHttp\PokemonCaptureService.ClientHttp.csproj" />
+    <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.Repository\PokemonCaptureService.Repository.csproj" />
+    <ProjectReference Include="..\PokedexService.Business\PokedexService.Business.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

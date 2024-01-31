@@ -8,12 +8,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PokedexService.Business\PokedexService.Business.csproj" />
     <ProjectReference Include="..\PokedexService.Repository\PokedexService.Repository.csproj" />
+    <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.ClientHttp\PokemonCaptureService.ClientHttp.csproj" />
   </ItemGroup>
 
 </Project>
