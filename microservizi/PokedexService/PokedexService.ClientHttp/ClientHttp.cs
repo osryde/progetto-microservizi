@@ -3,7 +3,7 @@ using PokemonCaptureService.Repository.Model;
 using System.Net.Http.Json;
 using PokedexService.Business;
 using PokedexService.Business.Abstraction;
-
+using PokedexService.Shared;
 
 namespace PokedexService.ClientHttp
 {
@@ -11,17 +11,16 @@ namespace PokedexService.ClientHttp
     {
 
         private readonly HttpClient _httpClient;
-        private IBusiness _business;
-        public ClientHttp(HttpClient httpClient, IBusiness business)
+
+        public ClientHttp(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _business = business;
         }
 
-        public async Task PokemonAddAsync(string name, CancellationToken cancellationToken = default)
+        public async Task PokemonAddAsync(PokemonDTO pokemon, CancellationToken cancellationToken = default)
         {
-            var response = await _httpClient.PostAsync($"/api/PokemonPopulate/PokemonAdd", JsonContent.Create(name));
-            PokemonCaptureService.Repository.Model.Pokemon? value = await response.EnsureSuccessStatusCode().Content.ReadFromJsonAsync<PokemonCaptureService.Repository.Model.Pokemon>(cancellationToken: cancellationToken);
+            var response = await _httpClient.PostAsync($"/Pokedex/AddPokemonAsync", JsonContent.Create(pokemon.PokemonName));
+            await response.EnsureSuccessStatusCode().Content.ReadFromJsonAsync<string>(cancellationToken: cancellationToken);
         
         }
     }

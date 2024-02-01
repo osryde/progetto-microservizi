@@ -1,21 +1,15 @@
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PokedexService.Repository.Model
+namespace PokedexService.Shared
 {
 
-    public class Pokemon
+    public class PokemonDTO
     {
-        [JsonPropertyName("id")]
         
         public int Id { get; set; }
-
-        [JsonPropertyName("name")]
         public required string PokemonName { get; set; }
-
-        [JsonPropertyName("img")]
         public required string Image { get; set; }
 
     }
-
 }
