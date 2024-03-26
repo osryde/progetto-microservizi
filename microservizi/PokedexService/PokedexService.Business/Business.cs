@@ -18,6 +18,7 @@ namespace PokedexService.Business
             repo = repository;
         }
 
+        //Ritorno tutti i pokemon catturati presenti nel DB
         public async Task<IEnumerable<Pokemon>> PokedexAsync(CancellationToken cancellationToken = default)
         {
             IEnumerable<Pokemon> pokemons = await repo.GetAllPokemons();
@@ -29,6 +30,7 @@ namespace PokedexService.Business
 
             using FileStream dati = File.OpenRead("pokedexMinimal.json");
             
+            // Controllo se il pokemon dato è valido
             var extractedDataPokemon = JsonSerializer.Deserialize<List<Pokemon>>(dati);
 
             if(extractedDataPokemon == null)

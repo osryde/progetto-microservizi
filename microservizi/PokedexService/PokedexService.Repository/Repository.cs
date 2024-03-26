@@ -45,7 +45,16 @@ namespace PokedexService.Repository
 
         public async Task<IEnumerable<Pokemon>> GetAllPokemons(CancellationToken cancellationToken = default) => await _PokedexServiceDbContext.Pokemons.ToListAsync(cancellationToken);
 
+        // RemovePokemonAsync non è implementato FATTO DA COPILOT 
+        public async Task RemovePokemonAsync(int id, CancellationToken cancellationToken = default)
+        {
+            Pokemon? pokemon = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
+            if(pokemon == null)
+                throw new NullReferenceException();
+
+            _PokedexServiceDbContext.Pokemons.Remove(pokemon);
+        }
     }
     
 }

@@ -48,4 +48,7 @@ public class PokedexController : ControllerBase
         return Ok(result);
     }
 
+
+    #TODO: Pokedex Reset 
+
 }

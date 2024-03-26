@@ -38,6 +38,8 @@ namespace PokemonCaptureService.Business
             var casualId = random.Next(1,897);
             return await repo.GetItemById(casualId);
         }
+
+        #TODO: PopulateAreaWithPokemon solo 10 che decrementano ad ogni cattura di un pokemon
     }
 
 

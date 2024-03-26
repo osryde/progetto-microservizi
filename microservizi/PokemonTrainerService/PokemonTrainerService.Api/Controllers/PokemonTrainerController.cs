@@ -7,4 +7,13 @@ namespace PokemonTrainerService.Api.Controllers;
 public class PokemonTrainerController : ControllerBase
 {
    
+   #TODO: CatturaPokemon
+
+   #TODO: Aggiungi pokemon alla squadra
+
+   #TODO: Elimina squadra
+
+   #TODO: Visualizza zaino
+
+   #TODO: Visualizza squadra
 }
