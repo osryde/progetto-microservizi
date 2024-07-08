@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using PokedexService.Repository.Model;
 using PokedexService.Business.Abstraction;
 using PokedexService.Repository;
+using PokedexService.Shared;
 using System.Text.Json;
 using System.IdentityModel.Tokens.Jwt;
 
@@ -22,13 +23,13 @@ public class PokedexController : ControllerBase
     }
     
     [HttpPost("AddPokemonAsync")]
-    public async Task<ActionResult> AddPokemonAsync(string name, CancellationToken cancellationToken)
+    public async Task<ActionResult> AddPokemonAsync(PokemonDTO name, CancellationToken cancellationToken)
     {
             
         if(name == null)
             return Ok("Pokemon non valido! ");
         
-        await _business.AggiungiPokemon(name, cancellationToken);
+        await _business.AggiungiPokemon(name.PokemonName, cancellationToken);
         dbContext.SaveChanges();
 
         return Ok("Pokemon aggiunto (Se non lo era gia!)");

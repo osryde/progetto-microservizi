@@ -1,4 +1,5 @@
-﻿using PokemonCaptureService.Business.Abstract;
+﻿using System.Text.Json;
+using PokemonCaptureService.Business.Abstract;
 using PokemonCaptureService.Repository.Abstraction;
 using PokemonCaptureService.Repository.Model;
 
