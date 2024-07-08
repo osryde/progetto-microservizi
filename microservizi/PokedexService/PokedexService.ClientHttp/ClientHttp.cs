@@ -5,6 +5,11 @@ using PokedexService.Business;
 using PokedexService.Business.Abstraction;
 using PokedexService.Shared;
 
+using System.Net.Http;
+
+using System.Threading.Tasks;
+using System.Threading;
+
 namespace PokedexService.ClientHttp
 {
     public class ClientHttp : IClientHttp
@@ -19,9 +24,11 @@ namespace PokedexService.ClientHttp
 
         public async Task PokemonAddAsync(PokemonDTO pokemon, CancellationToken cancellationToken = default)
         {
-            var response = await _httpClient.PostAsync($"/Pokedex/AddPokemonAsync", JsonContent.Create(pokemon.PokemonName));
-            await response.EnsureSuccessStatusCode().Content.ReadFromJsonAsync<string>(cancellationToken: cancellationToken);
-        
+            _httpClient.BaseAddress = new Uri("http://localhost:5115");
+
+            var response = await _httpClient.PostAsync($"/Pokedex/AddPokemonAsync", JsonContent.Create(pokemon));
+
+            await response.EnsureSuccessStatusCode().Content.ReadAsStringAsync();
         }
     }
 }
