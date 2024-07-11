@@ -35,7 +35,7 @@ public class PokemonPopulateController : ControllerBase
             result += "Hai trovato un oggetto: \nID -> " + item.ItemId + "\nNome -> " + item.ItemName;
         }
 
-        return Ok(result + "\nPokemon trovato:\nID -> " + pokemon.PokemonId + "\nNome -> " + pokemon.PokemonName + "\nImmagine -> " + pokemon.PokemonImage);
+        return Ok(result + "\nPokemon trovato:\nID -> " + pokemon.PokemonId + "\nNome -> " + pokemon.PokemonName + $"\nPokemon Image -> {pokemon.PokemonImage}");
 
     }
 
