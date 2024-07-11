@@ -40,7 +40,7 @@ namespace PokemonCaptureService.Business
             return await repo.GetItemById(casualId);
         }
 
-        #TODO: PopulateAreaWithPokemon solo 10 che decrementano ad ogni cattura di un pokemon
+        // TODO: PopulateAreaWithPokemon solo 10 che decrementano ad ogni cattura di un pokemon
     }
 
 

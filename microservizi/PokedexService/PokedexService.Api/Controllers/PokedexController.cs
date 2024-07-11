@@ -50,6 +50,6 @@ public class PokedexController : ControllerBase
     }
 
 
-    #TODO: Pokedex Reset 
+    // TODO: Pokedex Reset 
 
 }
