@@ -35,11 +35,11 @@ public class PokemonPopulateController : ControllerBase
             result += "Hai trovato un oggetto: \nID -> " + item.ItemId + "\nNome -> " + item.ItemName;
         }
 
-        return Ok(result + "\nPokemon trovato:\nID -> " + pokemon.PokemonId + "\nNome -> " + pokemon.PokemonName + "\nImmagine -> " + pokemon.PokemonImage);
+        return Ok(result + "\nPokemon trovato:\nID -> " + pokemon.PokemonId + "\nNome -> " + pokemon.PokemonName + $"\nPokemon Image -> {pokemon.PokemonImage}");
 
     }
 
-    #TODO: Fare in modo che venga popolato con 10 pokemon e debba essere chiamato ogni volta che finiscono i pokemon
+    // TODO: Fare in modo che venga popolato con 10 pokemon e debba essere chiamato ogni volta che finiscono i pokemon
     [HttpPost("PopulateAreaWithPokemon")]
     public async Task<IActionResult> ImportPokemonFromJsonFile()
     {

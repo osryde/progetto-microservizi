@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using PokemonCaptureService.Business.Abstract;
 using PokemonCaptureService.Business;
 using PokemonCaptureService.Repository.Abstraction;
+using Microsoft.OpenApi.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
