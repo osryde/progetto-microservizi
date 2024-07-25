@@ -1,5 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\PokemonTrainerService.Repository\PokemonTrainerService.Repository.csproj" />
+    <ProjectReference Include="..\PokemonTrainerService.ClientHttp\PokemonTrainerService.ClientHttp.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
