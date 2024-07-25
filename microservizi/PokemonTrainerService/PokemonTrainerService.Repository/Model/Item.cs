@@ -12,5 +12,8 @@ namespace PokemonTrainerService.Repository.Model
 
 		[JsonPropertyName("name")]
 		public required string ItemName { get; set; }
+
+        public int  Quantity { get; set; }
+        
     }
 }
