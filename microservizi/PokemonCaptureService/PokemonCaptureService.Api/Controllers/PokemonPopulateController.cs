@@ -24,8 +24,14 @@ public class PokemonPopulateController : ControllerBase
     public async Task<IActionResult> PokemonCasuale(){
         
         String result = "";
-        Pokemon pokemon = await _business.CatturaPokemon();
         Random random = new();
+        
+        if(random.Next()%2 == 0){
+            result += "Il Pokemon è fuggito! ";
+            return Ok(result);
+        }
+
+        Pokemon pokemon = await _business.CatturaPokemon();
 
         Items? item = null;
         if(random.Next()%20 == 0)
