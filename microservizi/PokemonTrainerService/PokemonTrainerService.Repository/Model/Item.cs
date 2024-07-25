@@ -8,12 +8,12 @@ namespace PokemonTrainerService.Repository.Model
 
 		[JsonPropertyName("id")]
 		[DatabaseGenerated(DatabaseGeneratedOption.None)]
-		public int ItemId { get; set; }
+		public required int ItemId { get; set; }
 
 		[JsonPropertyName("name")]
 		public required string ItemName { get; set; }
 
         public int  Quantity { get; set; }
-        
+
     }
 }
