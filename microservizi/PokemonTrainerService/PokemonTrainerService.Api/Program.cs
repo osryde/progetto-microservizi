@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<PokemonTrainerServiceDbContext>(options => options.UseSqlServer("name=ConnectionStrings:PokemonTrainerServiceDbContext", b => b.MigrationsAssembly("PokemonTrainerService.Repository")));
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IBusiness, Business>();
-
+//builder.Services.AddScoped<IClientHttp, ClientHttp>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
