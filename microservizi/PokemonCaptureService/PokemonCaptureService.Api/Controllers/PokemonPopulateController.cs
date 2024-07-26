@@ -32,12 +32,9 @@ public class PokemonPopulateController : ControllerBase
         }
 
         Pokemon pokemon = await _business.CatturaPokemon();
-
-        Items? item = null;
-        if(random.Next()%20 == 0)
-            item = await _business.OggettoCasuale();
         
-        if(item != null){
+        if(random.Next()%20 == 0){
+            Items? item = await _business.OggettoCasuale();
             result += "Hai trovato un oggetto: \nID -> " + item.ItemId + "\nNome -> " + item.ItemName;
         }
 

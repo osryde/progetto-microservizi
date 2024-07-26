@@ -3,9 +3,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Utility.Kafka.Services;
 using Utility.Kafka.Abstractions.Clients;
-using PokemonCaptureService.Business.Kafka;
 using PokemonCaptureService.Repository.Abstraction;
 using PokemonCaptureService.Repository.Model;
+
 namespace PokemonCaptureService.Business.Kafka;
 public class ProducerService : ProducerService<KafkaTopicsOutput> {
 	public ProducerService(

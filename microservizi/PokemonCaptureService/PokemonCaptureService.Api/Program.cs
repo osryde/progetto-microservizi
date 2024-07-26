@@ -4,6 +4,7 @@ using PokemonCaptureService.Business.Abstract;
 using PokemonCaptureService.Business;
 using PokemonCaptureService.Repository.Abstraction;
 using PokemonCaptureService.Business.Kafka;
+using PokemonCaptureService.Business.Profiles;
 using Microsoft.OpenApi.Models;
 
 
@@ -25,6 +26,8 @@ builder.Services.AddHttpClient<PokedexService.ClientHttp.Abstraction.IClientHttp
 
 // Kafka Producer
 builder.Services.AddKafkaProducerService<KafkaTopicsOutput, ProducerService>(builder.Configuration);
+
+builder.Services.AddAutoMapper(typeof(AssemblyMarker)); // Per l'auto risoluzione dei DTO
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

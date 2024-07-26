@@ -4,7 +4,7 @@ using Utility.Kafka.Messages;
 using PokemonCaptureService.Repository.Model;
 using PokemonCaptureService.Shared;
 
-namespace Pagamenti.Business.Factory;
+namespace PokemonCaptureService.Business.Factory;
 
 public static class TransactionalOutboxFactory
 {
