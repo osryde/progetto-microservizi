@@ -3,7 +3,7 @@ using PokemonCaptureService.Repository.Model;
 using System.Net.Http.Json;
 using PokedexService.Business;
 using PokedexService.Business.Abstraction;
-using PokedexService.Shared;
+using PokemonCaptureService.Shared;
 
 using System.Net.Http;
 

@@ -2,7 +2,7 @@
 using PokemonCaptureService.Business.Abstract;
 using PokemonCaptureService.Repository.Abstraction;
 using PokemonCaptureService.Repository.Model;
-
+using PokemonCaptureService.Shared;
 
 namespace PokemonCaptureService.Business
 {
@@ -11,11 +11,9 @@ namespace PokemonCaptureService.Business
     {
 
         private IRepository repo;
-        private readonly PokedexService.ClientHttp.Abstraction.IClientHttp _clientHttp;
-        public Business(IRepository repository, PokedexService.ClientHttp.Abstraction.IClientHttp clientHttp)
+        public Business(IRepository repository)
         {
             repo = repository;
-            _clientHttp = clientHttp;
         }
 
         public async Task<Pokemon> CatturaPokemon(CancellationToken cancellationToken = default)
@@ -23,12 +21,13 @@ namespace PokemonCaptureService.Business
             Random random = new();
             var casualId = random.Next(1,152);
             Pokemon result = await repo.GetPokemonById(casualId);
-            PokedexService.Shared.PokemonDTO tmp = new PokedexService.Shared.PokemonDTO{
+            PokemonDTO tmp = new PokemonDTO{
                 PokemonName = result.PokemonName,
                 Id = result.PokemonId,
                 Image = result.PokemonImage
             };
-            await _clientHttp.PokemonAddAsync(tmp, cancellationToken);
+
+            //Implementare comunicazione con kafka
 
             return result;
         }

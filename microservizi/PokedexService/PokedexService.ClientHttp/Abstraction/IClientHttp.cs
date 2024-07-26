@@ -1,4 +1,4 @@
-using PokedexService.Shared;
+using PokemonCaptureService.Shared;
 namespace PokedexService.ClientHttp.Abstraction
 {
     public interface IClientHttp

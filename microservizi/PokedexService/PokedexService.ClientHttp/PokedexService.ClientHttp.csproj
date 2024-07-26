@@ -4,6 +4,7 @@
     <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.Repository\PokemonCaptureService.Repository.csproj" />
     <ProjectReference Include="..\PokedexService.Business\PokedexService.Business.csproj" />
     <ProjectReference Include="..\PokedexService.Shared\PokedexService.Shared.csproj" />
+    <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.Shared\PokemonCaptureService.Shared.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
