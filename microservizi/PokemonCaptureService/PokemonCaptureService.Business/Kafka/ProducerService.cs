@@ -30,10 +30,15 @@ public class ProducerService : ProducerService<KafkaTopicsOutput> {
 			return;
 		}
 
+        
+
 		try {
 
 			foreach (TransactionalOutbox t in transactions) {
 				string topic = t.Tabella;
+
+                if (!topic.Equals(KafkaTopicsOutput.Pokemon) || !topic.Equals(KafkaTopicsOutput.Item))
+			        throw new Exception($"OperationsAsync: topic <{topic}> is not permitted for this producer.");
 
 				Logger.LogInformation("Message producing...");
 				await ProducerClient.ProduceAsync(t.Tabella, t.Messaggio, cancellationToken);
@@ -54,7 +59,7 @@ public class ProducerService : ProducerService<KafkaTopicsOutput> {
 			}
 
 		} catch (Exception e) {
-			throw e;
+			throw new Exception("Error in ProducerService.OperationsAsync", e);
 		}
 
 		await Task.CompletedTask;
