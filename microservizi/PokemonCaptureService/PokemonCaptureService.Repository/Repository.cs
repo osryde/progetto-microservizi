@@ -151,6 +151,10 @@ namespace PokemonCaptureService.Repository
 
         #endregion
 
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default){
+            return await _PokemonCaptureServiceDbContext.SaveChangesAsync(cancellationToken);
+        }
+
     }
 
 

@@ -4,7 +4,8 @@ namespace PokemonCaptureService.Repository.Abstraction
 {
     public interface IRepository 
     {
-
+        
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         Task<Pokemon> AddPokemonAsync(Pokemon pokemon, CancellationToken cancellationToken = default);
         Task<Items> AddItemsAsync(Items items, CancellationToken cancellationToken = default);
 
