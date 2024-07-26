@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PokemonCaptureService.Business.Abstract;
 using PokemonCaptureService.Business;
 using PokemonCaptureService.Repository.Abstraction;
+using PokemonCaptureService.Business.Kafka;
 using Microsoft.OpenApi.Models;
 
 
@@ -21,6 +22,9 @@ builder.Services.AddHttpClient<PokedexService.ClientHttp.Abstraction.IClientHttp
 {
     httpClient.BaseAddress = new Uri(builder.Configuration.GetSection("PokedexClientHttp:BaseAddress").Value!);
 });
+
+// Kafka Producer
+builder.Services.AddKafkaProducerService<KafkaTopicsOutput, ProducerService>(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

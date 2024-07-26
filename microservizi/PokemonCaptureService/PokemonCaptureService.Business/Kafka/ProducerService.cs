@@ -6,7 +6,7 @@ using Utility.Kafka.Abstractions.Clients;
 using PokemonCaptureService.Business.Kafka;
 using PokemonCaptureService.Repository.Abstraction;
 using PokemonCaptureService.Repository.Model;
-namespace UsersHandler.Business.Kafka;
+namespace PokemonCaptureService.Business.Kafka;
 public class ProducerService : ProducerService<KafkaTopicsOutput> {
 	public ProducerService(
 	ILogger<ProducerService<KafkaTopicsOutput>> logger,
