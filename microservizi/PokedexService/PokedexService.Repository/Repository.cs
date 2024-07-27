@@ -13,6 +13,10 @@ namespace PokedexService.Repository
             _PokedexServiceDbContext = pokedexServiceDbContext;
         }
 
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default){
+            return await _PokedexServiceDbContext.SaveChangesAsync(cancellationToken);
+        }
+
         public async Task AddPokemonAsync(Pokemon pokemon, CancellationToken cancellationToken = default)
         {
             if(pokemon == null)
