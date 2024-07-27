@@ -14,17 +14,17 @@ namespace PokemonTrainerService.Repository
         {
             _PokemonTrainerServiceDbContext = pokemonTrainerServiceDbContext;
         }
-        public async Task<Item> AddItemsAsync(Item item, CancellationToken cancellationToken = default)
+        public async Task<Items> AddItemsAsync(Items item, CancellationToken cancellationToken = default)
         {
-            await _PokemonTrainerServiceDbContext.Item.AddAsync(item, cancellationToken);
+            await _PokemonTrainerServiceDbContext.Items.AddAsync(item, cancellationToken);
             await _PokemonTrainerServiceDbContext.SaveChangesAsync(cancellationToken);
             return item;
 
         }
 
-        public async Task<Item> GetItemById(int id, CancellationToken cancellationToken = default)
+        public async Task<Items> GetItemById(int id, CancellationToken cancellationToken = default)
         {
-            Item? result = await _PokemonTrainerServiceDbContext.Item.FirstOrDefaultAsync(x => x.ItemId == id, cancellationToken);
+            Items? result = await _PokemonTrainerServiceDbContext.Items.FirstOrDefaultAsync(x => x.ItemId == id, cancellationToken);
 
             if (result == null)
                 throw new NullReferenceException("Non è stato trovato un Item con tale ID");
@@ -32,9 +32,9 @@ namespace PokemonTrainerService.Repository
             return result;
         }
 
-        public async Task<Item> GetItemByName(string name, CancellationToken cancellationToken = default)
+        public async Task<Items> GetItemByName(string name, CancellationToken cancellationToken = default)
         {
-            Item? result = await _PokemonTrainerServiceDbContext.Item.FirstOrDefaultAsync(x => x.ItemName == name, cancellationToken);
+            Items? result = await _PokemonTrainerServiceDbContext.Items.FirstOrDefaultAsync(x => x.ItemName == name, cancellationToken);
 
             if (result == null)
                 throw new NullReferenceException("Non è stato trovato un Item con tale NOME");
@@ -42,16 +42,20 @@ namespace PokemonTrainerService.Repository
             return result;
         }
 
-        public async Task<IEnumerable<Item>> GetAllItems(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Items>> GetAllItems(CancellationToken cancellationToken = default)
         {
-            return await _PokemonTrainerServiceDbContext.Item.ToListAsync(cancellationToken);
+            return await _PokemonTrainerServiceDbContext.Items.ToListAsync(cancellationToken);
         }
 
-        public async Task<IEnumerable<Item>> RemoveAllItems(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Items>> RemoveAllItems(CancellationToken cancellationToken = default)
         {
-            _PokemonTrainerServiceDbContext.Item.RemoveRange(_PokemonTrainerServiceDbContext.Item);
+            _PokemonTrainerServiceDbContext.Items.RemoveRange(_PokemonTrainerServiceDbContext.Items);
             await _PokemonTrainerServiceDbContext.SaveChangesAsync(cancellationToken);
-            return await _PokemonTrainerServiceDbContext.Item.ToListAsync(cancellationToken);
+            return await _PokemonTrainerServiceDbContext.Items.ToListAsync(cancellationToken);
+        }
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default){
+            return await _PokemonTrainerServiceDbContext.SaveChangesAsync(cancellationToken);
         }
     }
 

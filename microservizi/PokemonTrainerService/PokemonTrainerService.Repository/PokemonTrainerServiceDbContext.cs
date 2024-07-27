@@ -18,10 +18,10 @@ namespace PokemonTrainerService.Repository
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Item>().HasKey(y => y.ItemId); // Chiave delle relazioni
+            modelBuilder.Entity<Items>().HasKey(y => y.ItemId); // Chiave delle relazioni
         }
 
-        public DbSet<Item> Item { get; set; }
+        public DbSet<Items> Items { get; set; }
 
     }
 }

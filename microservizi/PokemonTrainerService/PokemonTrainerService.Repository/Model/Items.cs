@@ -3,15 +3,15 @@ using System.Text.Json.Serialization;
 
 namespace PokemonTrainerService.Repository.Model
 {
-    public class Item
+    public class Items
 	{
 
 		[JsonPropertyName("id")]
 		[DatabaseGenerated(DatabaseGeneratedOption.None)]
-		public required int ItemId { get; set; }
+		public int ItemId { get; set; }
 
 		[JsonPropertyName("name")]
-		public required string ItemName { get; set; }
+		public string? ItemName { get; set; }
 
         public int  Quantity { get; set; }
 
