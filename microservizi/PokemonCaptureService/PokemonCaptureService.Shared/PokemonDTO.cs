@@ -7,9 +7,9 @@ namespace PokemonCaptureService.Shared
     public class PokemonDTO
     {
         
-        public int Id { get; set; }
+        public int PokemonId { get; set; }
         public string PokemonName { get; set; }
-        public string Image { get; set; }
+        public string PokemonImage { get; set; }
 
     }
 }

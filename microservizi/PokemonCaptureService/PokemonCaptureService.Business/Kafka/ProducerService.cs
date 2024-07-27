@@ -37,7 +37,7 @@ public class ProducerService : ProducerService<KafkaTopicsOutput> {
 			foreach (TransactionalOutbox t in transactions) {
 				string topic = t.Tabella;
 
-                if (!topic.Equals(KafkaTopicsOutput.Pokemon) || !topic.Equals(KafkaTopicsOutput.Item))
+                if (!topic.Equals(KafkaTopicsOutput.Pokemon) && !topic.Equals(KafkaTopicsOutput.Items))
 			        throw new Exception($"OperationsAsync: topic <{topic}> is not permitted for this producer.");
 
 				Logger.LogInformation("Message producing...");

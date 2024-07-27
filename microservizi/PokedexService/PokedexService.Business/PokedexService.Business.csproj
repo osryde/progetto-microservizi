@@ -1,8 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.Shared\PokemonCaptureService.Shared.csproj" />
     <ProjectReference Include="..\PokedexService.Repository\PokedexService.Repository.csproj" />
-    <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.ClientHttp\PokemonCaptureService.ClientHttp.csproj" />
+    <ProjectReference Include="..\..\Utility\Utility.Kafka\Utility.Kafka.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
   </ItemGroup>
 
   <PropertyGroup>

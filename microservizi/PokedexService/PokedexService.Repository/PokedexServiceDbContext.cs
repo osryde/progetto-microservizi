@@ -21,7 +21,7 @@ namespace PokedexService.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Definisco le chiavi per le relazioni
-            modelBuilder.Entity<Pokemon>().HasKey(x => x.Id);
+            modelBuilder.Entity<Pokemon>().HasKey(x => x.PokemonId);
             
         }
 

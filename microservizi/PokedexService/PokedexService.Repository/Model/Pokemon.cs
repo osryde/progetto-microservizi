@@ -7,14 +7,14 @@ namespace PokedexService.Repository.Model
     public class Pokemon
     {
         [JsonPropertyName("id")]
-        
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int PokemonId { get; set; }
 
         [JsonPropertyName("name")]
-        public required string PokemonName { get; set; }
+        public string? PokemonName { get; set; }
 
         [JsonPropertyName("img")]
-        public required string Image { get; set; }
+        public string? PokemonImage { get; set; }
 
     }
 

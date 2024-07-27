@@ -11,8 +11,8 @@ using PokedexService.Repository;
 namespace PokedexService.Repository.Migrations
 {
     [DbContext(typeof(PokedexServiceDbContext))]
-    [Migration("20240131182936_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240727112100_test")]
+    partial class test
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,21 +26,19 @@ namespace PokedexService.Repository.Migrations
 
             modelBuilder.Entity("PokedexService.Repository.Model.Pokemon", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PokemonId")
                         .HasColumnType("int")
                         .HasAnnotation("Relational:JsonPropertyName", "id");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
+                    b.Property<string>("PokemonImage")
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "img");
 
                     b.Property<string>("PokemonName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "name");
 
-                    b.HasKey("Id");
+                    b.HasKey("PokemonId");
 
                     b.ToTable("Pokemons");
                 });

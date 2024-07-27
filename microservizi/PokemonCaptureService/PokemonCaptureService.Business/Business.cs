@@ -30,8 +30,6 @@ namespace PokemonCaptureService.Business
             await repo.InsertTransactionalOutbox(TransactionalOutboxFactory.CreateInsert(newPokemon), cancellationToken);
             await repo.SaveChangesAsync(cancellationToken);
 
-            //Implementare comunicazione con kafka
-
             return result;
         }
 

@@ -27,7 +27,7 @@ namespace PokedexService.Repository
 
         public async Task<Pokemon> GetPokemonByIdAsync(int id, CancellationToken cancellationToken = default)
         {
-            Pokemon? result = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            Pokemon? result = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.PokemonId == id, cancellationToken);
 
             if(result == null)
                 throw new NullReferenceException();
@@ -52,7 +52,7 @@ namespace PokedexService.Repository
         // RemovePokemonAsync non è implementato FATTO DA COPILOT 
         public async Task RemovePokemonAsync(int id, CancellationToken cancellationToken = default)
         {
-            Pokemon? pokemon = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            Pokemon? pokemon = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.PokemonId == id, cancellationToken);
 
             if(pokemon == null)
                 throw new NullReferenceException();

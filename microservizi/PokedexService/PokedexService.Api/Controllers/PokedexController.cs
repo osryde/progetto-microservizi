@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using PokedexService.Repository.Model;
 using PokedexService.Business.Abstraction;
 using PokedexService.Repository;
-using PokedexService.Shared;
+using PokemonCaptureService.Shared;
 using System.Text.Json;
 using System.IdentityModel.Tokens.Jwt;
 
@@ -43,7 +43,7 @@ public class PokedexController : ControllerBase
 
         foreach(Pokemon p in json)
         {
-            result += "\nName: " + p.PokemonName + " Pokedex Number: " + p.Id;
+            result += "\nName: " + p.PokemonName + " Pokedex Number: " + p.PokemonId;
         }
 
         return Ok(result);
