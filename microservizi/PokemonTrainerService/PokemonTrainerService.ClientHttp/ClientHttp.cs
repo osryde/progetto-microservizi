@@ -1,5 +1,4 @@
 ﻿using PokemonTrainerService.ClientHttp.Abstraction;
-using PokemonTrainerService.Repository.Model;
 using System.Net.Http.Json;
 
 namespace PokemonTrainerService.ClientHttp

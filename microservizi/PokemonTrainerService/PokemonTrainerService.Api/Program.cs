@@ -3,6 +3,9 @@ using PokemonTrainerService.Repository.Abstraction;
 using PokemonTrainerService.Business;
 using PokemonTrainerService.Business.Abstraction;
 using Microsoft.EntityFrameworkCore;
+using PokemonTrainerService.Business.Kafka;
+using PokemonTrainerService.Business.Profiles;
+using PokemonTrainerService.Business.Kafka.MessageHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,9 @@ builder.Services.AddDbContext<PokemonTrainerServiceDbContext>(options => options
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IBusiness, Business>();
 //builder.Services.AddScoped<IClientHttp, ClientHttp>();
+
+builder.Services.AddAutoMapper(typeof(AssemblyMarker));
+builder.Services.AddKafkaConsumerService<KafkaTopicsInput, MessageHandlerFactory>(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

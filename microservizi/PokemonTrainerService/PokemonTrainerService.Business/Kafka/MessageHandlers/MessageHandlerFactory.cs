@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using Utility.Kafka.Abstractions.MessageHandlers;
 using Utility.Kafka.Services;
 
-namespace PokedexService.Business.Kafka.MessageHandlers;
+namespace PokemonTrainerService.Business.Kafka.MessageHandlers;
 
 public class MessageHandlerFactory : IMessageHandlerFactory {
     private readonly ILogger<ConsumerService<KafkaTopicsInput>> _logger;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Utility.Kafka;
 
-namespace PokedexService.Business.Kafka;
+namespace PokemonTrainerService.Business.Kafka;
 
 public class KafkaTopicsInput : AbstractKafkaTopics {
 

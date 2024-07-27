@@ -15,6 +15,8 @@ namespace PokemonTrainerService.Repository.Abstraction
         Task<IEnumerable<Items>> RemoveAllItems(CancellationToken cancellationToken = default);
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+
+        Task<Items> IncrementItem(string name, CancellationToken cancellationToken = default);
     }
     
 }

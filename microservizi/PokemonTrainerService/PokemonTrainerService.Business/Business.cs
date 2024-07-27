@@ -1,7 +1,7 @@
 ﻿using PokemonTrainerService.Business.Abstraction;
 using PokemonTrainerService.Repository.Model;
 using PokemonTrainerService.Repository.Abstraction;
-
+using System.Text.Json;
 
 namespace PokemonTrainerService.Business
 {
@@ -15,29 +15,32 @@ namespace PokemonTrainerService.Business
             repo = repository;
         }
 
-        public async Task<IEnumerable<Item>> ListaZaino(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Items>> ListaZaino(CancellationToken cancellationToken = default)
         {
-            IEnumerable<Item> items = await repo.GetAllItems();
+            IEnumerable<Items> items = await repo.GetAllItems();
             return items;
         }
-        public async Task<Item> AggiungiOggetto(Item item, CancellationToken cancellationToken = default)
+        public async Task AggiungiOggetto(string? name, CancellationToken cancellationToken = default)
         {
+
+            // Apro il file json
             using FileStream dati = File.OpenRead("items.json");
             
             // Controllo se l'item dato è valido
-            var extractedDataItem = JsonSerializer.Deserialize<List<Item>>(dati);
+            var extractedDataItem = JsonSerializer.Deserialize<List<Items>>(dati);
 
-            if(extractedDataItem == null)
+            if(extractedDataItem == null || name == null)
                 throw new NullReferenceException("File json non trovato");
 
             try
             {
 
-                await repo.Get(name, cancellationToken);
+                await repo.GetItemByName(name, cancellationToken);
+                await repo.IncrementItem(name, cancellationToken);
 
-            }catch(Exception){
+            }catch(Exception){ // Se non c'è l'item nel db, lo aggiungo
 
-                foreach (Item item in extractedDataItem)
+                foreach (Items item in extractedDataItem)
                 {
                     if(item.ItemName == name)
                     {
@@ -48,7 +51,7 @@ namespace PokemonTrainerService.Business
             }
         }
 
-        public async Task<String> CreaSquadraCasuale(CancellationToken cancellationToken = default)
+        public Task<String> CreaSquadraCasuale(CancellationToken cancellationToken = default)
         {
             throw new System.NotImplementedException(); // DA FARE con HttpClient
         }

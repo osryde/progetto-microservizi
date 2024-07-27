@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using PokemonTrainerService.Repository;
+using PokemonTrainerService.Repository.Model;
+using PokemonTrainerService.Business.Abstraction;
 
 namespace PokemonTrainerService.Api.Controllers;
 
@@ -7,13 +10,39 @@ namespace PokemonTrainerService.Api.Controllers;
 public class PokemonTrainerController : ControllerBase
 {
    
-   //TODO: CatturaPokemon
+   private readonly PokemonTrainerServiceDbContext dbContext;
+    private readonly IBusiness _business;   
 
-   //TODO: Aggiungi pokemon alla squadra
+    public PokemonTrainerController(PokemonTrainerServiceDbContext dbContext, IBusiness business)
+    {
+        this.dbContext = dbContext;
+        _business = business;
+    }
+    
+    [HttpPost("Aggiungi Oggetto nella borsa")]
+    public async Task<ActionResult> AddItemAsync(Items? item, CancellationToken cancellationToken)
+    {
+            
+        if(item == null || item.ItemName == null)
+            return Ok("Item non valido! ");
+        
+        await _business.AggiungiOggetto(item.ItemName, cancellationToken);
+        dbContext.SaveChanges();
 
-   //TODO: Elimina squadra
+        return Ok("Item aggiunto nella Borsa!");
+    
+    }
 
-   //TODO: Visualizza zaino
+    [HttpPost("Contenuto Zaino")]
+    public async Task<ActionResult<string>> BorsaAsync(CancellationToken cancellationToken){
+        var json = await _business.ListaZaino();
+        string result = "";
 
-   //TODO: Visualizza squadra
+        foreach(Items p in json)
+        {
+            result += "\nName: " + p.ItemName + " - Quantità: " + p.Quantity;
+        }
+
+        return Ok(result);
+    }
 }
