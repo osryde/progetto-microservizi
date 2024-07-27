@@ -25,6 +25,12 @@ namespace PokedexService.Business
 
             return pokemons;
         }
+
+        public void ResetPokedexAsync(CancellationToken cancellationToken = default)
+        {
+            repo.DropPokedexAsync(cancellationToken);
+        }
+
         public async Task AggiungiPokemon(string name, CancellationToken cancellationToken = default)
         {
 

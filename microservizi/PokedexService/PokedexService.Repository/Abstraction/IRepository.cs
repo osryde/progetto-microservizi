@@ -10,6 +10,7 @@ namespace PokedexService.Repository.Abstraction
         Task<Pokemon> GetPokemonByNameAsync(string name, CancellationToken cancellationToken = default);
         Task<IEnumerable<Pokemon>> GetAllPokemons(CancellationToken cancellationToken = default);
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+        void DropPokedexAsync(CancellationToken cancellationToken = default);
 
     }
 }
