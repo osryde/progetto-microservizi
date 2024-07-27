@@ -45,4 +45,10 @@ public class PokemonTrainerController : ControllerBase
 
         return Ok(result);
     }
+
+    [HttpGet("Svuota Zaino")]
+    public async Task<ActionResult<string>> SvuotaBorsaAsync(CancellationToken cancellationToken){
+        await _business.SvuotaZaino();
+        return Ok("Zaino Svuotato!");
+    }
 }

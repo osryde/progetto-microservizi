@@ -55,6 +55,12 @@ namespace PokemonTrainerService.Business
         {
             throw new System.NotImplementedException(); // DA FARE con HttpClient
         }
+
+        public async Task SvuotaZaino(CancellationToken cancellationToken = default)
+        {
+            await repo.RemoveAllItems();
+        }
+
     }
 
 }

@@ -49,10 +49,11 @@ namespace PokedexService.Repository
 
         public async Task<IEnumerable<Pokemon>> GetAllPokemons(CancellationToken cancellationToken = default) => await _PokedexServiceDbContext.Pokemons.ToListAsync(cancellationToken);
 
-        public void DropPokedexAsync(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Pokemon>> DropPokedexAsync(CancellationToken cancellationToken = default)
         {
             _PokedexServiceDbContext.Pokemons.RemoveRange(_PokedexServiceDbContext.Pokemons);
-            _PokedexServiceDbContext.SaveChanges();
+            await _PokedexServiceDbContext.SaveChangesAsync(cancellationToken);
+            return await _PokedexServiceDbContext.Pokemons.ToListAsync(cancellationToken);
         }
 
         public async Task RemovePokemonAsync(int id, CancellationToken cancellationToken = default)

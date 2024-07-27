@@ -8,6 +8,6 @@ namespace PokemonTrainerService.Business.Abstraction
         Task<IEnumerable<Items>> ListaZaino(CancellationToken cancellationToken = default);
         Task AggiungiOggetto(String name, CancellationToken cancellationToken = default);
         Task<String> CreaSquadraCasuale(CancellationToken cancellationToken = default);
-
+        Task SvuotaZaino(CancellationToken cancellationToken = default);
     }
 }

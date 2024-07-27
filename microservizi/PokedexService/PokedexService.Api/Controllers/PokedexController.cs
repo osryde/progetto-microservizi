@@ -50,8 +50,8 @@ public class PokedexController : ControllerBase
     }
 
     [HttpGet("Pokedex Reset")]
-    public ActionResult<string> ResetPokedexAsync() {
-        _business.ResetPokedexAsync();
+    public async Task<ActionResult<string>> ResetPokedexAsync() {
+        await _business.ResetPokedexAsync();
         return Ok("Pokedex resettato!");
     }
 
