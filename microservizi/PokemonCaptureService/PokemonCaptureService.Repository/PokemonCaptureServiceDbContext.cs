@@ -23,6 +23,9 @@ namespace PokemonCaptureService.Repository
             modelBuilder.Entity<Pokemon>().HasKey(x => x.PokemonId);
 
             modelBuilder.Entity<Items>().HasKey(y => y.ItemId);
+
+            modelBuilder.Entity<TransactionalOutbox>().ToTable("TransactionalOutbox");
+            modelBuilder.Entity<TransactionalOutbox>().HasKey(e => new { e.Id });
             
         }
 
@@ -30,5 +33,7 @@ namespace PokemonCaptureService.Repository
         //DBSet ottenuto dalla cartella Model
         public DbSet<Pokemon> Pokemons { get; set; }
         public DbSet<Items> Item { get; set; }
+        public DbSet<TransactionalOutbox> TransactionalOutboxList { get; set; }
+
     }
 }

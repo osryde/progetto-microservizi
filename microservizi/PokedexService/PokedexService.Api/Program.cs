@@ -3,8 +3,9 @@ using PokedexService.Business.Abstraction;
 using PokedexService.Repository;
 using PokedexService.Business;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-using PokemonCaptureService.ClientHttp;
+using PokedexService.Business.Kafka;
+using PokedexService.Business.Kafka.MessageHandlers;
+using PokedexService.Business.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<PokedexServiceDbContext>(options => options.UseSqlServer("name=ConnectionStrings:PokedexServiceDbContext", b => b.MigrationsAssembly("PokedexService.Repository")));
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IBusiness, Business>();
+
+builder.Services.AddAutoMapper(typeof(AssemblyMarker));
+builder.Services.AddKafkaConsumerService<KafkaTopicsInput, MessageHandlerFactory>(builder.Configuration);
 
 
 builder.Services.AddEndpointsApiExplorer();

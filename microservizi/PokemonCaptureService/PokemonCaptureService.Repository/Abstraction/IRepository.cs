@@ -4,7 +4,8 @@ namespace PokemonCaptureService.Repository.Abstraction
 {
     public interface IRepository 
     {
-
+        
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         Task<Pokemon> AddPokemonAsync(Pokemon pokemon, CancellationToken cancellationToken = default);
         Task<Items> AddItemsAsync(Items items, CancellationToken cancellationToken = default);
 
@@ -21,6 +22,17 @@ namespace PokemonCaptureService.Repository.Abstraction
 
         Task<IEnumerable<Items>> GetAllItems(CancellationToken cancellationToken = default);
 
+        #region TransactionalOutbox
+
+        Task<IEnumerable<TransactionalOutbox>> GetAllTransactionalOutbox(CancellationToken cancellationToken = default);
+
+        Task<TransactionalOutbox?> GetTransactionalOutboxByKey(long id, CancellationToken cancellationToken = default);
+
+        Task DeleteTransactionalOutbox(long id, CancellationToken cancellationToken = default);
+
+        Task InsertTransactionalOutbox(TransactionalOutbox transactionalOutbox, CancellationToken cancellationToken = default);
+
+        #endregion
         
     }
 }

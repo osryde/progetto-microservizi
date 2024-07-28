@@ -1,5 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\PokemonTrainerService.Repository\PokemonTrainerService.Repository.csproj" />
+    <ProjectReference Include="..\PokemonTrainerService.ClientHttp\PokemonTrainerService.ClientHttp.csproj" />
+    <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.Shared\PokemonCaptureService.Shared.csproj" />
+    <ProjectReference Include="..\..\Utility\Utility.Kafka\Utility.Kafka.csproj" />
+    <ProjectReference Include="..\..\PokedexService\PokedexService.ClientHttp\PokedexService.ClientHttp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

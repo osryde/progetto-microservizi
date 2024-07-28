@@ -1,6 +1,6 @@
 using PokemonTrainerService.Repository.Model;
 using Microsoft.EntityFrameworkCore;
-
+using PokemonTrainerService.Repository.Abstraction;
 
 
 
@@ -13,13 +13,15 @@ namespace PokemonTrainerService.Repository
         public PokemonTrainerServiceDbContext(DbContextOptions<PokemonTrainerServiceDbContext> options) 
             : base(options) 
         {
-            
+        
         }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Definisco le chiavi per le relazioni
+            modelBuilder.Entity<Items>().HasKey(y => y.ItemId); // Chiave delle relazioni
         }
+
+        public DbSet<Items> Items { get; set; }
 
     }
 }

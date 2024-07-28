@@ -2,7 +2,9 @@
 using PokemonCaptureService.Business.Abstract;
 using PokemonCaptureService.Repository.Abstraction;
 using PokemonCaptureService.Repository.Model;
-
+using PokemonCaptureService.Shared;
+using PokemonCaptureService.Business.Factory;
+using AutoMapper;
 
 namespace PokemonCaptureService.Business
 {
@@ -10,12 +12,12 @@ namespace PokemonCaptureService.Business
     public class Business : IBusiness
     {
 
+        private readonly IMapper _mapper;
         private IRepository repo;
-        private readonly PokedexService.ClientHttp.Abstraction.IClientHttp _clientHttp;
-        public Business(IRepository repository, PokedexService.ClientHttp.Abstraction.IClientHttp clientHttp)
+        public Business(IRepository repository, IMapper mapper)
         {
             repo = repository;
-            _clientHttp = clientHttp;
+            _mapper = mapper;
         }
 
         public async Task<Pokemon> CatturaPokemon(CancellationToken cancellationToken = default)
@@ -23,21 +25,27 @@ namespace PokemonCaptureService.Business
             Random random = new();
             var casualId = random.Next(1,152);
             Pokemon result = await repo.GetPokemonById(casualId);
-            PokedexService.Shared.PokemonDTO tmp = new PokedexService.Shared.PokemonDTO{
-                PokemonName = result.PokemonName,
-                Id = result.PokemonId,
-                Image = result.PokemonImage
-            };
-            await _clientHttp.PokemonAddAsync(tmp, cancellationToken);
+            PokemonDTO newPokemon = _mapper.Map<PokemonDTO>(result); // Da record a DTO
+
+            await repo.InsertTransactionalOutbox(TransactionalOutboxFactory.CreateInsert(newPokemon), cancellationToken);
+            await repo.SaveChangesAsync(cancellationToken);
 
             return result;
         }
 
         public async Task<Items> OggettoCasuale(CancellationToken cancellationToken = default)
         {
+            // Implementare comunicazione con kafka
             Random random = new();
             var casualId = random.Next(1,897);
-            return await repo.GetItemById(casualId);
+            Items item = await repo.GetItemById(casualId);
+
+            ItemDTO newItem = _mapper.Map<ItemDTO>(item); // Da record a DTO
+
+            await repo.InsertTransactionalOutbox(TransactionalOutboxFactory.CreateInsert(newItem), cancellationToken);
+            await repo.SaveChangesAsync(cancellationToken);
+
+            return item;
         }
 
         // TODO: PopulateAreaWithPokemon solo 10 che decrementano ad ogni cattura di un pokemon

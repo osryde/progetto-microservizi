@@ -13,16 +13,32 @@ public class PokemonPopulateController : ControllerBase
 {
     private readonly PokemonCaptureServiceDbContext dbContext;
     private readonly IBusiness _business;   
+    private readonly HttpClient _httpClient;
 
-    public PokemonPopulateController(PokemonCaptureServiceDbContext dbContext, IBusiness business)
+    public PokemonPopulateController(PokemonCaptureServiceDbContext dbContext, IBusiness business, HttpClient httpClient)
     {
         this.dbContext = dbContext;
         _business = business;
+        _httpClient = httpClient;
     }
 
-    [HttpPost("PokemonCasuale")]
+    [HttpGet("Visualizza e Cattura Pokemon")]
+    public async Task<IActionResult> PokemonCasualeImage(){
+        // URL dell'immagine
+        string imageUrl = (await _business.CatturaPokemon()).PokemonImage;
+
+        // Scarica l'immagine dal URL
+        byte[] imageBytes = await _httpClient.GetByteArrayAsync(imageUrl);
+
+        // Restituisci l'immagine come FileContentResult
+        return File(imageBytes, "image/png");
+    }
+
+    [HttpPost("Cattura Pokemon")]
     public async Task<IActionResult> PokemonCasuale(){
         
+        Pokemon pokemon;
+        Items? item;
         String result = "";
         Random random = new();
         
@@ -31,13 +47,18 @@ public class PokemonPopulateController : ControllerBase
             return Ok(result);
         }
 
-        Pokemon pokemon = await _business.CatturaPokemon();
+        try{
+            pokemon = await _business.CatturaPokemon();
+        }catch(Exception e){
+            return BadRequest("Devi popolare l'area con i Pokémon prima di catturarne uno! oppure " + e.Message);
+        }    
 
-        Items? item = null;
-        if(random.Next()%20 == 0)
-            item = await _business.OggettoCasuale();
-        
-        if(item != null){
+        if(random.Next()%5 == 0){
+            try{
+                item = await _business.OggettoCasuale();
+            }catch(Exception e){
+                return BadRequest("Devi riempire la zona con gli oggetti prima di poterne trovare uno! oppure " + e.Message);
+            }
             result += "Hai trovato un oggetto: \nID -> " + item.ItemId + "\nNome -> " + item.ItemName;
         }
 

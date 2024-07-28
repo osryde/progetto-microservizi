@@ -3,7 +3,7 @@ using PokemonCaptureService.Repository.Model;
 using System.Net.Http.Json;
 using PokedexService.Business;
 using PokedexService.Business.Abstraction;
-using PokedexService.Shared;
+using PokemonCaptureService.Shared;
 
 using System.Net.Http;
 
@@ -20,15 +20,19 @@ namespace PokedexService.ClientHttp
         public ClientHttp(HttpClient httpClient)
         {
             _httpClient = httpClient;
+            _httpClient.BaseAddress = new Uri("http://localhost:5115");
         }
 
-        public async Task PokemonAddAsync(PokemonDTO pokemon, CancellationToken cancellationToken = default)
+        public async Task<PokemonDTO?> PokemonRandomAsync(CancellationToken cancellationToken = default)
         {
-            _httpClient.BaseAddress = new Uri("http://localhost:5115");
+            var response = await _httpClient.GetAsync($"/Pokedex/PokemonRandom", cancellationToken);
 
-            var response = await _httpClient.PostAsync($"/Pokedex/AddPokemonAsync", JsonContent.Create(pokemon));
+            if (response == null)
+            {
+                throw new HttpRequestException("Errore durante la richiesta");
+            }
 
-            await response.EnsureSuccessStatusCode().Content.ReadAsStringAsync();
+            return await response.EnsureSuccessStatusCode().Content.ReadFromJsonAsync<PokemonDTO>();
         }
     }
 }

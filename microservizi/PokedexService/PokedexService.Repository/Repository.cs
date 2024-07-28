@@ -13,6 +13,10 @@ namespace PokedexService.Repository
             _PokedexServiceDbContext = pokedexServiceDbContext;
         }
 
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default){
+            return await _PokedexServiceDbContext.SaveChangesAsync(cancellationToken);
+        }
+
         public async Task AddPokemonAsync(Pokemon pokemon, CancellationToken cancellationToken = default)
         {
             if(pokemon == null)
@@ -21,9 +25,20 @@ namespace PokedexService.Repository
             await _PokedexServiceDbContext.Pokemons.AddAsync(pokemon, cancellationToken);
         }
 
+        public async Task<Pokemon> GetRandomPokemonAsync(CancellationToken cancellationToken = default)
+        {
+            Pokemon? result = await _PokedexServiceDbContext.Pokemons.OrderBy(x => Guid.NewGuid()).FirstOrDefaultAsync(cancellationToken);
+
+            if(result == null)
+                throw new NullReferenceException();
+
+            // Il risultato può essere null
+            return result;
+        }
+
         public async Task<Pokemon> GetPokemonByIdAsync(int id, CancellationToken cancellationToken = default)
         {
-            Pokemon? result = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            Pokemon? result = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.PokemonId == id, cancellationToken);
 
             if(result == null)
                 throw new NullReferenceException();
@@ -45,10 +60,16 @@ namespace PokedexService.Repository
 
         public async Task<IEnumerable<Pokemon>> GetAllPokemons(CancellationToken cancellationToken = default) => await _PokedexServiceDbContext.Pokemons.ToListAsync(cancellationToken);
 
-        // RemovePokemonAsync non è implementato FATTO DA COPILOT 
+        public async Task<IEnumerable<Pokemon>> DropPokedexAsync(CancellationToken cancellationToken = default)
+        {
+            _PokedexServiceDbContext.Pokemons.RemoveRange(_PokedexServiceDbContext.Pokemons);
+            await _PokedexServiceDbContext.SaveChangesAsync(cancellationToken);
+            return await _PokedexServiceDbContext.Pokemons.ToListAsync(cancellationToken);
+        }
+
         public async Task RemovePokemonAsync(int id, CancellationToken cancellationToken = default)
         {
-            Pokemon? pokemon = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            Pokemon? pokemon = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.PokemonId == id, cancellationToken);
 
             if(pokemon == null)
                 throw new NullReferenceException();

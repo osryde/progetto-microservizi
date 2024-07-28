@@ -2,9 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using PokedexService.Repository.Model;
 using PokedexService.Business.Abstraction;
 using PokedexService.Repository;
-using PokedexService.Shared;
-using System.Text.Json;
-using System.IdentityModel.Tokens.Jwt;
+using PokemonCaptureService.Shared;
+using AutoMapper;
 
 namespace PokedexService.Api.Controllers;
 
@@ -15,11 +14,13 @@ public class PokedexController : ControllerBase
 
     private readonly PokedexServiceDbContext dbContext;
     private readonly IBusiness _business;   
+    private readonly IMapper _mapper;
 
-    public PokedexController(PokedexServiceDbContext dbContext, IBusiness business)
+    public PokedexController(PokedexServiceDbContext dbContext, IBusiness business, IMapper mapper)
     {
         this.dbContext = dbContext;
         _business = business;
+        _mapper = mapper;
     }
     
     [HttpPost("AddPokemonAsync")]
@@ -43,13 +44,28 @@ public class PokedexController : ControllerBase
 
         foreach(Pokemon p in json)
         {
-            result += "\nName: " + p.PokemonName + " Pokedex Number: " + p.Id;
+            result += "\nName: " + p.PokemonName + " Pokedex Number: " + p.PokemonId;
         }
 
         return Ok(result);
     }
 
+    [HttpGet("Pokedex Reset")]
+    public async Task<ActionResult<string>> ResetPokedexAsync(CancellationToken cancellationToken) {
+        await _business.ResetPokedexAsync();
+        return Ok("Pokedex resettato!");
+    }
 
-    // TODO: Pokedex Reset 
+
+    [HttpGet("PokemonRandom")]
+    public async Task<ActionResult<PokemonDTO>> PokemonRandomAsync(CancellationToken cancellationToken) {
+        PokemonDTO pokemon = _mapper.Map<PokemonDTO>(await _business.RandomPokemon());
+        return Ok(pokemon);
+    }
+
+    [HttpGet("PokemonMancanti")]
+    public async Task<ActionResult<Pokemon>> PokemonMancantiAsync(CancellationToken cancellationToken) {
+        return Ok("Attualmente ti restano <" + await _business.PokemonMancanti() + "> pokemon da catturare! \nNon mollare!");
+    }
 
 }

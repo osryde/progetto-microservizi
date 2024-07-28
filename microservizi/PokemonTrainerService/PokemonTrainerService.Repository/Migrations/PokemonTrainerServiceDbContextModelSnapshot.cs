@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PokedexService.Repository;
+using PokemonTrainerService.Repository;
 
 #nullable disable
 
-namespace PokedexService.Repository.Migrations
+namespace PokemonTrainerService.Repository.Migrations
 {
-    [DbContext(typeof(PokedexServiceDbContext))]
-    partial class PokedexServiceDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(PokemonTrainerServiceDbContext))]
+    partial class PokemonTrainerServiceDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -21,25 +21,22 @@ namespace PokedexService.Repository.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("PokedexService.Repository.Model.Pokemon", b =>
+            modelBuilder.Entity("PokemonTrainerService.Repository.Model.Items", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ItemId")
                         .HasColumnType("int")
                         .HasAnnotation("Relational:JsonPropertyName", "id");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasAnnotation("Relational:JsonPropertyName", "img");
-
-                    b.Property<string>("PokemonName")
-                        .IsRequired()
+                    b.Property<string>("ItemName")
                         .HasColumnType("nvarchar(max)")
                         .HasAnnotation("Relational:JsonPropertyName", "name");
 
-                    b.HasKey("Id");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
-                    b.ToTable("Pokemons");
+                    b.HasKey("ItemId");
+
+                    b.ToTable("Items");
                 });
 #pragma warning restore 612, 618
         }

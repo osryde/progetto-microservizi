@@ -71,6 +71,7 @@ namespace PokemonCaptureService.Repository
 
         #endregion
 
+        #region Adder
 
         // Metodi per aggiungere all'interno della tabella
         public async Task<Pokemon> AddPokemonAsync(Pokemon pokemon, CancellationToken cancellationToken = default){
@@ -124,6 +125,34 @@ namespace PokemonCaptureService.Repository
 
                 await AddItemsAsync(item, cancellationToken);
             }
+        }
+
+        #endregion
+
+        #region TransactionalOutbox
+         public async Task<IEnumerable<TransactionalOutbox>> GetAllTransactionalOutbox(CancellationToken cancellationToken = default) => await _PokemonCaptureServiceDbContext.TransactionalOutboxList.ToListAsync(cancellationToken);
+
+        public async Task<TransactionalOutbox?> GetTransactionalOutboxByKey(long id, CancellationToken cancellationToken = default)
+        {
+            return await _PokemonCaptureServiceDbContext.TransactionalOutboxList.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        }
+
+        public async Task DeleteTransactionalOutbox(long id, CancellationToken cancellationToken = default)
+        {
+            _PokemonCaptureServiceDbContext.TransactionalOutboxList.Remove(
+                (await GetTransactionalOutboxByKey(id, cancellationToken)) ??
+                throw new ArgumentException($"TransactionalOutbox con id {id} non trovato", nameof(id)));
+        }
+
+        public async Task InsertTransactionalOutbox(TransactionalOutbox transactionalOutbox, CancellationToken cancellationToken = default)
+        {
+            await _PokemonCaptureServiceDbContext.TransactionalOutboxList.AddAsync(transactionalOutbox);
+        }
+
+        #endregion
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default){
+            return await _PokemonCaptureServiceDbContext.SaveChangesAsync(cancellationToken);
         }
 
     }
