@@ -8,6 +8,7 @@ namespace PokedexService.Business.Abstraction
         Task<IEnumerable<Pokemon>> PokedexAsync(CancellationToken cancellationToken = default);
         Task AggiungiPokemon(string name, CancellationToken cancellationToken = default);
         Task<Pokemon> RandomPokemon(CancellationToken cancellationToken = default);
+        Task<int> PokemonMancanti(CancellationToken cancellationToken = default);
         Task ResetPokedexAsync(CancellationToken cancellationToken = default);
     }
     

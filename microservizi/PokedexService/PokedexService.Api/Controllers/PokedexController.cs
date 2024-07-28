@@ -61,4 +61,9 @@ public class PokedexController : ControllerBase
         return Ok(await _business.RandomPokemon());
     }
 
+    [HttpGet("PokemonMancanti")]
+    public async Task<ActionResult<Pokemon>> PokemonMancantiAsync() {
+        return Ok("Attualmente ti restano <" + await _business.PokemonMancanti() + "> pokemon da catturare! \nNon mollare!");
+    }
+
 }
