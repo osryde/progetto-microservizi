@@ -56,6 +56,9 @@ public class PokedexController : ControllerBase
     }
 
 
-    // TODO: Pokedex Reset 
+    [HttpGet("PokemonRandom")]
+    public async Task<ActionResult<Pokemon>> PokemonRandomAsync() {
+        return Ok(await _business.RandomPokemon());
+    }
 
 }

@@ -31,6 +31,11 @@ namespace PokedexService.Business
             await repo.DropPokedexAsync(cancellationToken);
         }
 
+        public async Task<Pokemon> RandomPokemon(CancellationToken cancellationToken = default)
+        {
+            return await repo.GetRandomPokemonAsync(cancellationToken);
+        }
+
         public async Task AggiungiPokemon(string name, CancellationToken cancellationToken = default)
         {
 

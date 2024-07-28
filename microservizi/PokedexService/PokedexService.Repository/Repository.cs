@@ -25,6 +25,17 @@ namespace PokedexService.Repository
             await _PokedexServiceDbContext.Pokemons.AddAsync(pokemon, cancellationToken);
         }
 
+        public async Task<Pokemon> GetRandomPokemonAsync(CancellationToken cancellationToken = default)
+        {
+            Pokemon? result = await _PokedexServiceDbContext.Pokemons.OrderBy(x => Guid.NewGuid()).FirstOrDefaultAsync(cancellationToken);
+
+            if(result == null)
+                throw new NullReferenceException();
+
+            // Il risultato può essere null
+            return result;
+        }
+
         public async Task<Pokemon> GetPokemonByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             Pokemon? result = await _PokedexServiceDbContext.Pokemons.FirstOrDefaultAsync(x => x.PokemonId == id, cancellationToken);
