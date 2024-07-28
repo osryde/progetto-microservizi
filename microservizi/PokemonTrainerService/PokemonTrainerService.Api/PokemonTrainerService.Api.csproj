@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PokemonTrainerService.Repository\PokemonTrainerService.Repository.csproj" />
     <ProjectReference Include="..\PokemonTrainerService.Business\PokemonTrainerService.Business.csproj" />
+    <ProjectReference Include="..\..\PokedexService\PokedexService.ClientHttp\PokedexService.ClientHttp.csproj" />
   </ItemGroup>
 
 

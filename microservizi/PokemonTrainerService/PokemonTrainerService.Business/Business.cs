@@ -2,6 +2,8 @@
 using PokemonTrainerService.Repository.Model;
 using PokemonTrainerService.Repository.Abstraction;
 using System.Text.Json;
+using PokedexService.ClientHttp.Abstraction;
+using PokemonCaptureService.Shared;
 
 namespace PokemonTrainerService.Business
 {
@@ -9,10 +11,12 @@ namespace PokemonTrainerService.Business
     {   
 
         private IRepository repo;
+        private IClientHttp _clientHttp;
         
-        public Business(IRepository repository)
+        public Business(IRepository repository, IClientHttp clientHttp)
         {
             repo = repository;
+            _clientHttp = clientHttp;
         }
 
         public async Task<IEnumerable<Items>> ListaZaino(CancellationToken cancellationToken = default)
@@ -51,9 +55,22 @@ namespace PokemonTrainerService.Business
             }
         }
 
-        public Task<String> CreaSquadraCasuale(CancellationToken cancellationToken = default)
+        public async Task<string> CreaSquadraCasuale(CancellationToken cancellationToken = default)
         {
-            throw new System.NotImplementedException(); // DA FARE con HttpClient
+            string squadra = "\nSquadra:\n";
+
+            for(int i = 0; i < 6; i++)
+            {
+                PokemonDTO? PokemonDTO = await _clientHttp.PokemonRandomAsync(cancellationToken);
+
+                if(PokemonDTO == null)
+                    throw new NullReferenceException("Pokemon non trovato");
+
+                squadra += "- " + PokemonDTO.PokemonName + "\n";
+            }
+
+            return squadra;
+            
         }
 
         public async Task SvuotaZaino(CancellationToken cancellationToken = default)

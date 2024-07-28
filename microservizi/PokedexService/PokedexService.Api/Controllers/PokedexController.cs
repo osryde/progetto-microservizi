@@ -3,8 +3,7 @@ using PokedexService.Repository.Model;
 using PokedexService.Business.Abstraction;
 using PokedexService.Repository;
 using PokemonCaptureService.Shared;
-using System.Text.Json;
-using System.IdentityModel.Tokens.Jwt;
+using AutoMapper;
 
 namespace PokedexService.Api.Controllers;
 
@@ -15,11 +14,13 @@ public class PokedexController : ControllerBase
 
     private readonly PokedexServiceDbContext dbContext;
     private readonly IBusiness _business;   
+    private readonly IMapper _mapper;
 
-    public PokedexController(PokedexServiceDbContext dbContext, IBusiness business)
+    public PokedexController(PokedexServiceDbContext dbContext, IBusiness business, IMapper mapper)
     {
         this.dbContext = dbContext;
         _business = business;
+        _mapper = mapper;
     }
     
     [HttpPost("AddPokemonAsync")]
@@ -50,19 +51,20 @@ public class PokedexController : ControllerBase
     }
 
     [HttpGet("Pokedex Reset")]
-    public async Task<ActionResult<string>> ResetPokedexAsync() {
+    public async Task<ActionResult<string>> ResetPokedexAsync(CancellationToken cancellationToken) {
         await _business.ResetPokedexAsync();
         return Ok("Pokedex resettato!");
     }
 
 
     [HttpGet("PokemonRandom")]
-    public async Task<ActionResult<Pokemon>> PokemonRandomAsync() {
-        return Ok(await _business.RandomPokemon());
+    public async Task<ActionResult<PokemonDTO>> PokemonRandomAsync(CancellationToken cancellationToken) {
+        PokemonDTO pokemon = _mapper.Map<PokemonDTO>(await _business.RandomPokemon());
+        return Ok(pokemon);
     }
 
     [HttpGet("PokemonMancanti")]
-    public async Task<ActionResult<Pokemon>> PokemonMancantiAsync() {
+    public async Task<ActionResult<Pokemon>> PokemonMancantiAsync(CancellationToken cancellationToken) {
         return Ok("Attualmente ti restano <" + await _business.PokemonMancanti() + "> pokemon da catturare! \nNon mollare!");
     }
 

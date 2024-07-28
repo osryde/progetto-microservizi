@@ -5,6 +5,7 @@
     <ProjectReference Include="..\PokemonTrainerService.ClientHttp\PokemonTrainerService.ClientHttp.csproj" />
     <ProjectReference Include="..\..\PokemonCaptureService\PokemonCaptureService.Shared\PokemonCaptureService.Shared.csproj" />
     <ProjectReference Include="..\..\Utility\Utility.Kafka\Utility.Kafka.csproj" />
+    <ProjectReference Include="..\..\PokedexService\PokedexService.ClientHttp\PokedexService.ClientHttp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

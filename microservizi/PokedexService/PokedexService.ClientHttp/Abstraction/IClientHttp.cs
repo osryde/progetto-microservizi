@@ -1,8 +1,9 @@
 using PokemonCaptureService.Shared;
+
 namespace PokedexService.ClientHttp.Abstraction
 {
     public interface IClientHttp
     {
-        Task PokemonAddAsync(PokemonDTO pokemon, CancellationToken cancellationToken = default);
+        Task<PokemonDTO?> PokemonRandomAsync(CancellationToken cancellationToken = default);
     }
 }

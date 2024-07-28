@@ -2,10 +2,13 @@ using PokemonTrainerService.Repository;
 using PokemonTrainerService.Repository.Abstraction;
 using PokemonTrainerService.Business;
 using PokemonTrainerService.Business.Abstraction;
+using PokemonTrainerService.ClientHttp;
+using PokemonTrainerService.ClientHttp.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using PokemonTrainerService.Business.Kafka;
 using PokemonTrainerService.Business.Profiles;
 using PokemonTrainerService.Business.Kafka.MessageHandlers;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +18,13 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<PokemonTrainerServiceDbContext>(options => options.UseSqlServer("name=ConnectionStrings:PokemonTrainerServiceDbContext", b => b.MigrationsAssembly("PokemonTrainerService.Repository")));
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IBusiness, Business>();
-//builder.Services.AddScoped<IClientHttp, ClientHttp>();
+builder.Services.AddScoped<IClientHttp, ClientHttp>();
+
+// ClientHttp da contattare ( PokedexService )
+builder.Services.AddHttpClient<PokedexService.ClientHttp.Abstraction.IClientHttp, PokedexService.ClientHttp.ClientHttp>("PokedexClientHttp", httpClient =>
+{
+   httpClient.BaseAddress = new Uri(builder.Configuration.GetSection("PokedexClientHttp:BaseAddress").Value!);
+});
 
 builder.Services.AddAutoMapper(typeof(AssemblyMarker));
 builder.Services.AddKafkaConsumerService<KafkaTopicsInput, MessageHandlerFactory>(builder.Configuration);

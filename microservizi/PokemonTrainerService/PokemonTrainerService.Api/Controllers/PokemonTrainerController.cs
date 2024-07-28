@@ -51,4 +51,9 @@ public class PokemonTrainerController : ControllerBase
         await _business.SvuotaZaino();
         return Ok("Zaino Svuotato!");
     }
+
+    [HttpGet("Team Casuale")]
+    public async Task<ActionResult<string>> TeamCasualeAsync(CancellationToken cancellationToken){
+        return Ok(await _business.CreaSquadraCasuale());
+    }
 }
