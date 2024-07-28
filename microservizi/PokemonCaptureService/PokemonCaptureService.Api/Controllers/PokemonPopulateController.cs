@@ -13,14 +13,28 @@ public class PokemonPopulateController : ControllerBase
 {
     private readonly PokemonCaptureServiceDbContext dbContext;
     private readonly IBusiness _business;   
+    private readonly HttpClient _httpClient;
 
-    public PokemonPopulateController(PokemonCaptureServiceDbContext dbContext, IBusiness business)
+    public PokemonPopulateController(PokemonCaptureServiceDbContext dbContext, IBusiness business, HttpClient httpClient)
     {
         this.dbContext = dbContext;
         _business = business;
+        _httpClient = httpClient;
     }
 
-    [HttpPost("PokemonCasuale")]
+    [HttpGet("Visualizza e Cattura Pokemon")]
+    public async Task<IActionResult> PokemonCasualeImage(){
+        // URL dell'immagine
+        string imageUrl = (await _business.CatturaPokemon()).PokemonImage;
+
+        // Scarica l'immagine dal URL
+        byte[] imageBytes = await _httpClient.GetByteArrayAsync(imageUrl);
+
+        // Restituisci l'immagine come FileContentResult
+        return File(imageBytes, "image/png");
+    }
+
+    [HttpPost("Cattura Pokemon")]
     public async Task<IActionResult> PokemonCasuale(){
         
         String result = "";

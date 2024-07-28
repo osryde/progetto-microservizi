@@ -17,12 +17,13 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<PokemonCaptureServiceDbContext>(options => options.UseSqlServer("name=ConnectionStrings:PokemonCaptureServiceDbContext", b => b.MigrationsAssembly("PokemonCaptureService.Repository")));
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IBusiness, Business>();
+builder.Services.AddHttpClient<PokemonPopulateController>();
 
 // ClientHttp da contattare ( PokedexService )
-builder.Services.AddHttpClient<PokedexService.ClientHttp.Abstraction.IClientHttp, PokedexService.ClientHttp.ClientHttp>("PokedexClientHttp", httpClient =>
-{
-    httpClient.BaseAddress = new Uri(builder.Configuration.GetSection("PokedexClientHttp:BaseAddress").Value!);
-});
+//builder.Services.AddHttpClient<PokedexService.ClientHttp.Abstraction.IClientHttp, PokedexService.ClientHttp.ClientHttp>("PokedexClientHttp", httpClient =>
+//{
+ //   httpClient.BaseAddress = new Uri(builder.Configuration.GetSection("PokedexClientHttp:BaseAddress").Value!);
+//});
 
 // Kafka Producer
 builder.Services.AddKafkaProducerService<KafkaTopicsOutput, ProducerService>(builder.Configuration);
