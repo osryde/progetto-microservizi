@@ -48,6 +48,7 @@ services:
     build:
       context: .
       dockerfile: PokemonCaptureService/PokemonCaptureService.Api/Dockerfile
+    restart: always
     ports:
       - 5049:5049
     environment:
@@ -63,6 +64,7 @@ services:
     build:
       context: .
       dockerfile: PokedexService/PokedexService.Api/Dockerfile
+    restart: always
     ports:
       - 5115:5115
     environment:
@@ -79,6 +81,7 @@ services:
     build:
       context: .
       dockerfile: PokemonTrainerService/PokemonTrainerService.Api/Dockerfile
+    restart: always
     ports:
       - 5252:5252
     environment:
