@@ -14,8 +14,8 @@ GO
 
 CREATE TABLE Pokemons (
     PokemonId INT PRIMARY KEY,
-    PokemonName VARCHAR(255) NOT NULL,
-    PokemonImage VARCHAR(MAX) NOT NULL
+    PokemonName VARCHAR(MAX),
+    PokemonImage VARCHAR(MAX)
 );
 GO
 
@@ -35,19 +35,19 @@ GO
 
 CREATE TABLE Pokemons (
     PokemonId INT PRIMARY KEY,
-    PokemonName VARCHAR(255) NOT NULL,
+    PokemonName VARCHAR(MAX) NOT NULL,
     PokemonImage VARCHAR(MAX) NOT NULL
 );
 
 CREATE TABLE Item (
     ItemId INT PRIMARY KEY,
-    ItemName VARCHAR(255) NOT NULL
+    ItemName VARCHAR(MAX) NOT NULL
 );
 
 CREATE TABLE TransactionalOutbox (
-    Id INT,
-    Tabella VARCHAR(255) ,
-    Messaggio VARCHAR(MAX)
+    Id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    Tabella NVARCHAR(MAX) ,
+    Messaggio NVARCHAR(MAX)
 );
 GO
 

@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 using PokedexService.Business;
 using PokedexService.Business.Abstraction;
 using PokemonCaptureService.Shared;
-
+using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 
 using System.Threading.Tasks;
@@ -14,13 +14,14 @@ namespace PokedexService.ClientHttp
 {
     public class ClientHttp : IClientHttp
     {
-
         private readonly HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
 
-        public ClientHttp(HttpClient httpClient)
+        public ClientHttp(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("http://localhost:5115");
+            _configuration = configuration;
+            _httpClient.BaseAddress = new Uri(_configuration["PokedexClientHttp:BaseAddress"] ?? throw new FileLoadException("BaseAddress not found in configuration"));
         }
 
         public async Task<PokemonDTO?> PokemonRandomAsync(CancellationToken cancellationToken = default)
