@@ -10,8 +10,8 @@ services:
       MSSQL_SA_PASSWORD: p4ssw0rD
     ports:
       - 2433:1433
-    volumes:
-      - "mssql-server:/var/opt/mssql"
+    #volumes:
+      #- "mssql-server:/var/opt/mssql"
 
   adminer:
     image: adminer:4.8.1
