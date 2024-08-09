@@ -12,8 +12,6 @@ services:
       - 2433:1433
     volumes:
       - "mssql-server:/var/opt/mssql"
-      - "./script.sql:/docker-entrypoint-initdb.d/script.sql"
-    entrypoint: /bin/bash -c "/opt/mssql/bin/sqlservr & sleep 30 && /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P p4ssw0rD -i /docker-entrypoint-initdb.d/script.sql && wait"
 
   adminer:
     image: adminer:4.8.1
