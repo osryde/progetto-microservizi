@@ -35,7 +35,7 @@ namespace PokemonCaptureService.Business
 
         public async Task<Items> OggettoCasuale(CancellationToken cancellationToken = default)
         {
-            // Implementare comunicazione con kafka
+            // Comunicazione con kafka
             Random random = new();
             var casualId = random.Next(1,897);
             Items item = await repo.GetItemById(casualId);
@@ -48,7 +48,6 @@ namespace PokemonCaptureService.Business
             return item;
         }
 
-        // TODO: PopulateAreaWithPokemon solo 10 che decrementano ad ogni cattura di un pokemon
     }
 
 

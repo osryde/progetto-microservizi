@@ -24,14 +24,14 @@ public class PokedexController : ControllerBase
     }
     
     [HttpPost("Add Pokemon")]
-    public async Task<ActionResult> AddPokemonAsync(PokemonDTO name, CancellationToken cancellationToken)
+    public async Task<ActionResult> AddPokemonAsync(string? pokemonName, CancellationToken cancellationToken)
     {
             
-        if(name == null)
+        if(pokemonName == null)
             return Ok("Pokemon non valido! ");
         
         try{
-            await _business.AggiungiPokemon(name.PokemonName, cancellationToken);
+            await _business.AggiungiPokemon(pokemonName, cancellationToken);
         }catch(Exception e){
             return BadRequest("Pokemon non valido! " + e.Message);
         }

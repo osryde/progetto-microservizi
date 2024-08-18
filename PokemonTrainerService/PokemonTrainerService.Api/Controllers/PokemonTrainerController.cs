@@ -20,14 +20,18 @@ public class PokemonTrainerController : ControllerBase
     }
     
     [HttpPost("Aggiungi Oggetto nella borsa")]
-    public async Task<ActionResult> AddItemAsync(Items? item, CancellationToken cancellationToken)
+    public async Task<ActionResult> AddItemAsync(string? itemName, CancellationToken cancellationToken)
     {
             
-        if(item == null || item.ItemName == null)
+        if(itemName == null)
             return Ok("Item non valido! ");
         
-        await _business.AggiungiOggetto(item.ItemName, cancellationToken);
-        dbContext.SaveChanges();
+        try{
+            await _business.AggiungiOggetto(itemName, cancellationToken);
+            dbContext.SaveChanges();
+        }catch(Exception e){    
+            return Ok("L'item dato non è valido. Errore: " + e.Message);
+        }
 
         return Ok("Item aggiunto nella Borsa!");
     
@@ -40,8 +44,11 @@ public class PokemonTrainerController : ControllerBase
 
         foreach(Items p in json)
         {
-            result += "\nName: " + p.ItemName + " - Quantità: " + p.Quantity;
+            result += "\n Id: " + p.ItemId  + " Name: " + p.ItemName + " - Quantità: " + p.Quantity;
         }
+
+        if(result == "")
+            return Ok("Zaino Vuoto!");
 
         return Ok(result);
     }

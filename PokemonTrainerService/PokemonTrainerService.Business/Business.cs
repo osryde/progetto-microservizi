@@ -4,6 +4,7 @@ using PokemonTrainerService.Repository.Abstraction;
 using System.Text.Json;
 using PokedexService.ClientHttp.Abstraction;
 using PokemonCaptureService.Shared;
+using System.Text.Json.Serialization;
 
 namespace PokemonTrainerService.Business
 {
@@ -31,7 +32,7 @@ namespace PokemonTrainerService.Business
             using FileStream dati = File.OpenRead("items.json");
             
             // Controllo se l'item dato è valido
-            var extractedDataItem = JsonSerializer.Deserialize<List<Items>>(dati);
+            var extractedDataItem = JsonSerializer.Deserialize<List<Obj>>(dati);
 
             if(extractedDataItem == null || name == null)
                 throw new NullReferenceException("File json non trovato");
@@ -44,14 +45,22 @@ namespace PokemonTrainerService.Business
 
             }catch(Exception){ // Se non c'è l'item nel db, lo aggiungo
 
-                foreach (Items item in extractedDataItem)
+                foreach (Obj item in extractedDataItem)
                 {
-                    if(item.ItemName == name)
+                    if(item.Name["english"] == name)
                     {
-                        await repo.AddItemsAsync(item, cancellationToken);
-                        break;
+                        Items? newItem = new Items
+                        {
+                            ItemName = name,
+                            Quantity = 1,
+                            ItemId = item.Id
+                        };
+                        await repo.AddItemsAsync(newItem, cancellationToken);
+                        
+                        return;
                     }
                 }
+                throw new NullReferenceException("Item non trovato");
             }
         }
 
@@ -103,6 +112,15 @@ namespace PokemonTrainerService.Business
             await repo.RemoveAllItems();
         }
 
+    }
+
+    public class Obj
+    {
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        [JsonPropertyName("name")]
+        public required Dictionary<string, string> Name { get; set; } 
     }
 
 }
