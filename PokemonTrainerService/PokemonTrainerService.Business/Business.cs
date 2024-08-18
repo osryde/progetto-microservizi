@@ -58,15 +58,40 @@ namespace PokemonTrainerService.Business
         public async Task<string> CreaSquadraCasuale(CancellationToken cancellationToken = default)
         {
             string squadra = "\nSquadra:\n";
+            List<string> pokemonList = new List<string>();
 
-            for(int i = 0; i < 6; i++)
-            {
-                PokemonDTO? PokemonDTO = await _clientHttp.PokemonRandomAsync(cancellationToken);
+            try{
+                for(int i = 0; i < 6; i++)
+                {
+                    PokemonDTO? PokemonDTO = await _clientHttp.PokemonRandomAsync(cancellationToken);
 
-                if(PokemonDTO == null)
-                    throw new NullReferenceException("Pokemon non trovato");
+                    if(PokemonDTO == null)
+                        throw new NullReferenceException("Pokemon non trovato");
+                    
+                    if (pokemonList.Contains(PokemonDTO.PokemonName)){
+                        int j = 0;
 
-                squadra += "- " + PokemonDTO.PokemonName + "\n";
+                        // Prova a fare 10 tentativi per trovare un pokemon diverso
+                        while(j < 10 && pokemonList.Contains(PokemonDTO.PokemonName)){
+                            PokemonDTO = await _clientHttp.PokemonRandomAsync(cancellationToken);
+
+                            if(!pokemonList.Contains(PokemonDTO.PokemonName))
+                                break;
+
+                            j++;
+                        }
+
+                        if(j == 10)
+                            throw new NullReferenceException("Pokemon non trovato");
+                        
+                    }
+
+                    pokemonList.Add(PokemonDTO.PokemonName);
+                    squadra += "- " + PokemonDTO.PokemonName + "\n";
+                }
+                
+            }catch(Exception){
+                return("Non ci sono abbastanza pokemon nel Pokedex per creare una squadra");
             }
 
             return squadra;
