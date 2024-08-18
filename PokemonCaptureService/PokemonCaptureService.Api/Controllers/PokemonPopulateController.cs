@@ -34,7 +34,7 @@ public class PokemonPopulateController : ControllerBase
         return File(imageBytes, "image/png");
     }
 
-    [HttpPost("Cattura Pokemon")]
+    [HttpPost("Cattura Pokemon e Oggetti")]
     public async Task<IActionResult> PokemonCasuale(){
         
         Pokemon pokemon;
@@ -53,7 +53,7 @@ public class PokemonPopulateController : ControllerBase
             return BadRequest("Devi popolare l'area con i Pokémon prima di catturarne uno! oppure " + e.Message);
         }    
 
-        if(random.Next()%5 == 0){
+        if(random.Next()%2 == 0){
             try{
                 item = await _business.OggettoCasuale();
             }catch(Exception e){

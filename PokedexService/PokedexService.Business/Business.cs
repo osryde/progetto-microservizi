@@ -64,9 +64,10 @@ namespace PokedexService.Business
                     if(pokemon.PokemonName == name)
                     {
                         await repo.AddPokemonAsync(pokemon, cancellationToken);
-                        break;
+                        return;
                     }
                 }
+                throw new NullReferenceException("Pokemon non trovato nel file json");
             }
 
         }
