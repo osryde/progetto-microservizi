@@ -52,6 +52,9 @@ public class PokedexController : ControllerBase
             result += "\nName: " + p.PokemonName + " Pokedex Number: " + p.PokemonId;
         }
 
+        if(result == "")
+            return Ok("Pokedex vuoto!");
+            
         return Ok(result);
     }
 
