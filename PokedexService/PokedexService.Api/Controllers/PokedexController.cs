@@ -28,7 +28,7 @@ public class PokedexController : ControllerBase
     {
             
         if(pokemonName == null)
-            return Ok("Pokemon non valido! ");
+            return BadRequest("Pokemon non valido! ");
         
         try{
             await _business.AggiungiPokemon(pokemonName, cancellationToken);

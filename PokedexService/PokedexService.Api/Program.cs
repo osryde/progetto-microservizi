@@ -25,6 +25,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Migrations
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<PokedexServiceDbContext>();
