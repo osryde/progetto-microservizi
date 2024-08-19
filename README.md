@@ -1,4 +1,3 @@
-
 # Progetto microservizi
 
 Progetto per il corso di Microservizi dell'università di Parma
@@ -7,6 +6,10 @@ Progetto per il corso di Microservizi dell'università di Parma
 ## Scopo del progetto
 
 L'insieme dei microservizi consente di simulare la cattura di un Pokemon. Un microservizio si occupa della cattura mentre gli altri due vanno a rappresentare il Pokedex e l'allenatore.
+
+<p align="center">
+  <img width="300" height="150" src="https://seeklogo.com/images/P/Pokemon-logo-497D61B223-seeklogo.com.png">
+</p>
 
 Di seguito l'elenco dei microservizi e una breve descrizione:
 
