@@ -114,6 +114,7 @@ namespace PokemonTrainerService.Business
 
     }
 
+    //Oggetto d'appoggio per la gestione del file Json
     public class Obj
     {
         [JsonPropertyName("id")]

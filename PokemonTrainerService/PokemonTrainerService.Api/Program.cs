@@ -34,6 +34,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Applico Migrations
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<PokemonTrainerServiceDbContext>();

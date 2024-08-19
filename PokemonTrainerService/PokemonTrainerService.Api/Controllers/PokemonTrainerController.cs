@@ -30,7 +30,7 @@ public class PokemonTrainerController : ControllerBase
             await _business.AggiungiOggetto(itemName, cancellationToken);
             dbContext.SaveChanges();
         }catch(Exception e){    
-            return Ok("L'item dato non è valido. Errore: " + e.Message);
+            return BadRequest("L'item dato non è valido. Errore: " + e.Message);
         }
 
         return Ok("Item aggiunto nella Borsa!");
