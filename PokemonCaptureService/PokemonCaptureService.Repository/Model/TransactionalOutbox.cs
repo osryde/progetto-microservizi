@@ -2,20 +2,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PokemonCaptureService.Repository.Model {
     public class TransactionalOutbox {
-        /// <summary>
-        /// ID
-        /// </summary>
+        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        /// <summary>
-        /// Nome della Tabella modificata
-        /// </summary>
+        // Nome della tabella
         public string Tabella { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Messaggio JSON di tipo OperationMessage contenente il record inserito/modificato/eliminato
-        /// </summary>
+        // Messaggio contenente il record
         public string Messaggio { get; set; } = string.Empty;
     }
 }
